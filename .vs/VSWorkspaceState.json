@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\DatabaseInitializer",
+    "\\Frontend",
+    "\\Frontend\\Grande"
+  ],
+  "SelectedNode": "\\DatabaseInitializer\\DatabaseInitializer.cs",
+  "PreviewInSolutionExplorer": false
+}
