@@ -7,5 +7,6 @@ import CustomerList from './Pages/CustomerList'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CustomerList />
+    <GoodsList />
   </React.StrictMode>,
 )
