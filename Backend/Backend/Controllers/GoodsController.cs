@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/goods")]
     public class GoodsController : ControllerBase
     {
         private readonly ILogger<GoodsController> _logger;
@@ -15,7 +15,7 @@ namespace Backend.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetGoods")]
+        [HttpGet]
         public IEnumerable<Goods> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new Goods
