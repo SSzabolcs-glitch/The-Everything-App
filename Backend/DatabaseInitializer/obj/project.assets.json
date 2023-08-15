@@ -5432,24 +5432,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sszab\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\raczl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Codecool\\TeamWork-1\\el-proyecte-grande-sprint-1-csharp-EviBera\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
+      "projectUniqueName": "C:\\Users\\raczl\\Desktop\\advanced\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
       "projectName": "DatabaseInitializer",
-      "projectPath": "D:\\Codecool\\TeamWork-1\\el-proyecte-grande-sprint-1-csharp-EviBera\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
-      "packagesPath": "C:\\Users\\sszab\\.nuget\\packages\\",
-      "outputPath": "D:\\Codecool\\TeamWork-1\\el-proyecte-grande-sprint-1-csharp-EviBera\\Backend\\DatabaseInitializer\\obj\\",
+      "projectPath": "C:\\Users\\raczl\\Desktop\\advanced\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
+      "packagesPath": "C:\\Users\\raczl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\raczl\\Desktop\\advanced\\The-Everything-App\\Backend\\DatabaseInitializer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\sszab\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\raczl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5457,7 +5452,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5497,7 +5491,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
