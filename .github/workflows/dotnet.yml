@@ -33,4 +33,4 @@ jobs:
           context: ./Backend/Backend
           file: ./Backend/Backend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/eventureapi:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest
