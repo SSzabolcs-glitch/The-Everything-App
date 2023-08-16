@@ -6,6 +6,7 @@ import Layout from "./Pages/Layout";
 import './index.css'
 import GoodsList from './Pages/GoodsList.jsx'
 import CustomerList from './Pages/CustomerList'
+import HomePage from './Pages/HomePage';
 
 const router = createBrowserRouter([
   {
@@ -15,10 +16,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/customerlist",
         element: <CustomerList />,
       },
       {
-        path: "/",
+        path: "/goodslist",
         element: <GoodsList />,
       },
     ],
