@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "lracz-patch-1" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "lracz-patch-1" ]
+    branches: [ "main" ]
 
 jobs:
   build:
