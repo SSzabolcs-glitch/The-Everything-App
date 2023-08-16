@@ -1,24 +1,21 @@
-# Use an official Node.js image as the base image
-FROM node:14.17.3-alpine
-
-# Set the working directory within the container
+FROM node:16-alpine as builder
+# Set the working directory to /app inside the container
 WORKDIR /app
-
-# Copy the package.json and package-lock.json files to the container
-COPY package.json .
-COPY package-lock.json .
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of your application files
+# Copy app files
 COPY . .
-
-# Build your React application
+# Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
+RUN npm ci 
+# Build the app
 RUN npm run build
 
-# Expose the port that the server will run on
-EXPOSE 5000
-
-# Set the command to serve the built application
-CMD ["npm", "run", "dev"]
+# Bundle static assets with nginx
+FROM nginx:1.21.0-alpine as production
+ENV NODE_ENV production
+# Copy built assets from `builder` image
+COPY --from=builder /app/build /usr/share/nginx/html
+# Add your nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Expose port
+EXPOSE 81
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
