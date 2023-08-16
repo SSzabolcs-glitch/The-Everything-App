@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function CustomerList() {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    fetch('https://localhost:7037/api/customer')
+    fetch('https://localhost:44308/api/customer')
       .then(response => response.json()) // Parse the response as JSON
       .then(data => setCustomers(data)) // Update the state with the parsed data
       .catch(error => console.error(error));

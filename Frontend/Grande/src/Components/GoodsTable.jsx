@@ -28,6 +28,8 @@ const GoodsTable = ({ goodsList }) => (
 );
 
 // Add PropTypes validation for the `goodsList` prop
+// (Specifies the types of props that a component should receive, it's generally considered good practice.
+// PropTypes help catch type-related bugs early and make it clear what props a component expects)
 GoodsTable.propTypes = {
   goodsList: PropTypes.arrayOf(
     PropTypes.shape({
