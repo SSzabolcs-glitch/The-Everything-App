@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jo6jnKx+kVJmlQYg/9wmj/jjEEWWBMjKOYwttoERN/RFpdr8c+Xj+2U4bRGUtAzNW/3yr4SOHnpGU0IlAEXKfQ==",
+  "dgSpecHash": "VwZ1JxfpTAWhvNxEhUFcto59tzaA5Hny2RNj8zhfw23IoLb/Vo8mi0+RxJ83MGDoFKdBXgC1b5Qjnlos9DI7/Q==",
   "success": true,
-  "projectFilePath": "D:\\Codecool\\TeamWork-1\\el-proyecte-grande-sprint-1-csharp-EviBera\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
+  "projectFilePath": "D:\\Codecool\\TeamWork-2\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sszab\\.nuget\\packages\\dapper\\1.50.5\\dapper.1.50.5.nupkg.sha512",
     "C:\\Users\\sszab\\.nuget\\packages\\log4net\\2.0.8\\log4net.2.0.8.nupkg.sha512",
