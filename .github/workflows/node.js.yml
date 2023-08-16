@@ -13,6 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+       run:
+         working-directory: ./Frontend/Grande
 
     strategy:
       matrix:
@@ -25,7 +28,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        cache-dependency-path: './Frontend/Grande/package-lock.json'
         cache: 'npm'
     - run: npm ci
     - run: npm run build
