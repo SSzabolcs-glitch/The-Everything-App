@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mayu\\projects\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj": {}
+    "C:\\Users\\raczl\\Desktop\\advanced\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mayu\\projects\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj": {
+    "C:\\Users\\raczl\\Desktop\\advanced\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mayu\\projects\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
+        "projectUniqueName": "C:\\Users\\raczl\\Desktop\\advanced\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
         "projectName": "DatabaseInitializer",
-        "projectPath": "C:\\Users\\Mayu\\projects\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
-        "packagesPath": "C:\\Users\\Mayu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mayu\\projects\\The-Everything-App\\Backend\\DatabaseInitializer\\obj\\",
+        "projectPath": "C:\\Users\\raczl\\Desktop\\advanced\\The-Everything-App\\Backend\\DatabaseInitializer\\DatabaseInitializer.csproj",
+        "packagesPath": "C:\\Users\\raczl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\raczl\\Desktop\\advanced\\The-Everything-App\\Backend\\DatabaseInitializer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mayu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\raczl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
