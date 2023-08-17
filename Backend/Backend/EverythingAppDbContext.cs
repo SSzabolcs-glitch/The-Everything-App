@@ -27,6 +27,10 @@ public class EverythingAppDbContext : DbContext
         builder.Entity<Customer>()
             .HasIndex(c => c.Email)
             .IsUnique();
+        
+        builder.Entity<Product>()
+            .HasIndex(c => c.ItemId)
+            .IsUnique();
 
         builder.Entity<Customer>()
             .HasOne(c => c.Address)
