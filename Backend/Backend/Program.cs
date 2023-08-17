@@ -26,6 +26,7 @@ builder.Services.AddSingleton<ICustomerRepository, CustomerRepository>();
 builder.Services.AddSingleton<IAddressRepository, AddressRepository>();
 builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
+builder.Services.AddSingleton<IOrderItemRepository, OrderItemRepository>();
 
 var app = builder.Build();
 
