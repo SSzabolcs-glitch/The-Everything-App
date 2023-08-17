@@ -1,4 +1,4 @@
-﻿namespace Backend.Models
+﻿namespace Backend.Models.Customer
 {
     public class Address
     {
@@ -9,5 +9,10 @@
         public string? City { get; init; }
         public string? Sreet { get; init; }
         public int HouseNumber { get; init; }
+        public string? Other { get; init; }
+
+        // Foreign key property
+        public int CustomerId { get; set; }
+        public Customer? Customer { get; set; }
     }
 }
