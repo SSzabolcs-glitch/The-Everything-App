@@ -1,19 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Backend.Models.Customer
 {
-    public class Customer
+    public class Admin
     {
-        public int Id { get; init; }
+        public int AdminId { get; init; }
+        public string? Username { get; init; }
         public string? FirstName { get; init; }
         public string? LastName { get; init; }
         public string? Email { get; init; }
-
-        // Foreign key property
-        public Address? Address { get; set; }
-
         public string? PasswordHash { get; set; }
         public string? Salt { get; set; }
 
