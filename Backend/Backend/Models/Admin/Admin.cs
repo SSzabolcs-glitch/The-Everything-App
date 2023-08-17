@@ -6,7 +6,7 @@ namespace Backend.Models.Customer
 {
     public class Admin
     {
-        public int Id { get; init; }
+        public int admin_id { get; init; }
         public string? Username { get; init; }
         public string? FirstName { get; init; }
         public string? LastName { get; init; }
