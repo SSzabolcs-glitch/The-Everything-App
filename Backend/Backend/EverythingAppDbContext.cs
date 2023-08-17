@@ -1,4 +1,5 @@
-﻿using Backend.Models.Customer;
+﻿using Backend.Models;
+using Backend.Models.Customer;
 using Microsoft.EntityFrameworkCore;
 
 public class EverythingAppDbContext : DbContext
@@ -16,6 +17,7 @@ public class EverythingAppDbContext : DbContext
         }
     }
     public DbSet<Customer> Customers { get; init; }
+    public DbSet<Address> Addresses { get; init; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
