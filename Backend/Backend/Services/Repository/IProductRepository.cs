@@ -2,7 +2,7 @@
 
 namespace Backend.Services.Repository
 {
-    public interface IPruductRepository
+    public interface IProductRepository
     {
         IEnumerable<Product> GetAll();
         Product? GetByName(string productName);

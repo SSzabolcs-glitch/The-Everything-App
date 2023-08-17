@@ -1,45 +1,45 @@
-﻿using Backend.Models;
-using Backend.Models.Customer;
+﻿using Backend.Models.Customer;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace Backend.Services.Repository
 {
-    public class PruductRepository : IPruductRepository
+    public class OrderRepository : IOrderRepository
     {
         private readonly IDbContextFactory<EverythingAppDbContext> _dbContextFactory;
 
-        public PruductRepository(IDbContextFactory<EverythingAppDbContext> dbContextFactory)
+        public OrderRepository(IDbContextFactory<EverythingAppDbContext> dbContextFactory)
         {
             _dbContextFactory = dbContextFactory;
         }
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<Order> GetAll()
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
-            return dbContext.Products.ToList();
+            return dbContext.Orders.ToList();
         }
 
-        public Product? GetByName(string productName)
+        public Order? GetById(int id)
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
-            return dbContext.Products.FirstOrDefault(c => c.ProductName == productName);
+            return dbContext.Orders.FirstOrDefault(c => c.Id == id);
         }
-        public void Add(Product product)
+        public void Add(Order order)
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
-            dbContext.Add(product);
+            dbContext.Add(order);
             dbContext.SaveChanges();
         }
-        public void Delete(Product product)
+        public void Delete(Order order)
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
-            dbContext.Remove(product);
+            dbContext.Remove(order);
             dbContext.SaveChanges();
         }
 
-        public void Update(Product product)
+        public void Update(Order order)
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
-            dbContext.Update(product);
+            dbContext.Update(order);
             dbContext.SaveChanges();
         }
     }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Services.Repository;
 
-public class AddressRepository:IAddressRepository
+public class AddressRepository : IAddressRepository
 {
     private readonly IDbContextFactory<EverythingAppDbContext> _dbContextFactory;
 
