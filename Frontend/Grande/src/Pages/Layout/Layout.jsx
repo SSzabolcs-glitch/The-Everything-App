@@ -26,8 +26,8 @@ const Layout = () => (
                     </li>
                 </div>
                 <div className="button-container">
-                    <Link to="/login">
-                        <button type="button">Log In</button>
+                    <Link to="/signup">
+                        <button type="button">Sign Up</button>
                     </Link>
                 </div>
             </ul>

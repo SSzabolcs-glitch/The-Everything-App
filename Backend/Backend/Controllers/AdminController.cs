@@ -46,7 +46,7 @@ namespace DatabaseTest.Controllers
             }
         }
 
-        // GET: api/customer
+        // PUT: api/customer
         [HttpPut("customer")]
         public void UpdateCustomer(string firstname, string lastname)
         {
@@ -61,7 +61,7 @@ namespace DatabaseTest.Controllers
             }
         }
 
-        // GET: api/customer
+        // DELETE: api/customer
         [HttpDelete("customer")]
         public void DeleteCustomer(string firstname, string lastname)
         {

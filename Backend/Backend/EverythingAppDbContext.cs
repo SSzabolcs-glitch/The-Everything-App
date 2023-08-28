@@ -1,4 +1,5 @@
 ﻿using Backend.Models.Customer;
+using Backend.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class EverythingAppDbContext : DbContext
@@ -16,12 +17,25 @@ public class EverythingAppDbContext : DbContext
         }
     }
     public DbSet<Customer> Customers { get; init; }
+    public DbSet<Address> Addresses { get; init; }
+    public DbSet<Product> Products { get; init; }
+    public DbSet<Order> Orders { get; init; }
+    public DbSet<OrderItem> OrderItems { get; init; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Customer>()
-        .HasIndex(c => c.Email)
-        .IsUnique();
+            .HasIndex(c => c.Email)
+            .IsUnique();
+        
+        builder.Entity<Product>()
+            .HasIndex(c => c.ItemId)
+            .IsUnique();
+
+        builder.Entity<Customer>()
+            .HasOne(c => c.Address)
+            .WithOne(ss => ss.Customer)
+            .HasForeignKey<Address>(ss => ss.CustomerId);
     }
 
 }

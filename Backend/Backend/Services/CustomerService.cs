@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Services.Repository
 {
-    public class CustomerRepository : ICustomerRepository
+    public class CustomerService : ICustomerRepository
     {
         private readonly IDbContextFactory<EverythingAppDbContext> _dbContextFactory;
 
-        public CustomerRepository(IDbContextFactory<EverythingAppDbContext> dbContextFactory)
+        public CustomerService(IDbContextFactory<EverythingAppDbContext> dbContextFactory)
         {
             _dbContextFactory = dbContextFactory;
         }

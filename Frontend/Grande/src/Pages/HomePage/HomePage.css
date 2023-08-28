@@ -8,10 +8,10 @@
     display: flex; /*flexbox arrangement*/
     justify-content: space-between; /*distribution of space between elements*/
     margin: 0;
-    padding: 200px;
-    padding-top: 160px;
+    padding: 160px;
+    padding-top: 100px;
     color: rgba(55, 63, 65, 1);
-    height: 750px;
+    height: 600px;
 }
 
 .main-text {
