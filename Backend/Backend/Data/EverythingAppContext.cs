@@ -1,11 +1,14 @@
 ﻿using Backend.Models.Customer;
 using Backend.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using System.Reflection.Emit;
 
-public class EverythingAppDbContext : DbContext
+public class EverythingAppContext : IdentityDbContext<IdentityUser, IdentityRole, string>
 {
     private readonly string? _connectionString;
-    public EverythingAppDbContext(DbContextOptions<EverythingAppDbContext> options, IConfiguration configuration) : base(options)
+    public EverythingAppContext(DbContextOptions<EverythingAppContext> options, IConfiguration configuration) : base(options)
     {
         _connectionString = configuration.GetConnectionString("DefaultConnection");
     }
@@ -16,26 +19,14 @@ public class EverythingAppDbContext : DbContext
             optionsBuilder.UseSqlServer(_connectionString);
         }
     }
-    public DbSet<Customer> Customers { get; init; }
     public DbSet<Address> Addresses { get; init; }
     public DbSet<Product> Products { get; init; }
     public DbSet<Order> Orders { get; init; }
     public DbSet<OrderItem> OrderItems { get; init; }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        builder.Entity<Customer>()
-            .HasIndex(c => c.Email)
-            .IsUnique();
-        
-        builder.Entity<Product>()
-            .HasIndex(c => c.ItemId)
-            .IsUnique();
-
-        builder.Entity<Customer>()
-            .HasOne(c => c.Address)
-            .WithOne(ss => ss.Customer)
-            .HasForeignKey<Address>(ss => ss.CustomerId);
+        base.OnModelCreating(modelBuilder);
     }
 
 }

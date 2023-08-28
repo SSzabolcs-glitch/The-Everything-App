@@ -1,6 +1,6 @@
 ﻿using Backend.Models;
 
-namespace Backend.Services.Repository
+namespace Backend.Repository
 {
     public interface IProductRepository
     {

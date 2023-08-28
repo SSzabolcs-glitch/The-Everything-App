@@ -1,7 +1,7 @@
 using Backend.Models;
 using Backend.Models.Customer;
 
-namespace Backend.Services.Repository;
+namespace Backend.Repository;
 
 public interface IAddressRepository
 {

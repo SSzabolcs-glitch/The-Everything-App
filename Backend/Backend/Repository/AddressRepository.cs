@@ -2,17 +2,17 @@ using Backend.Models;
 using Backend.Models.Customer;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Services.Repository;
+namespace Backend.Repository;
 
 public class AddressRepository : IAddressRepository
 {
-    private readonly IDbContextFactory<EverythingAppDbContext> _dbContextFactory;
+    private readonly IDbContextFactory<EverythingAppContext> _dbContextFactory;
 
-    public AddressRepository(IDbContextFactory<EverythingAppDbContext> dbContextFactory)
+    public AddressRepository(IDbContextFactory<EverythingAppContext> dbContextFactory)
     {
         _dbContextFactory = dbContextFactory;
     }
-  
+
 
     public Address? GetByCustomerId(int customerId)
     {

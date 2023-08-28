@@ -2,13 +2,13 @@
 using Backend.Models.Customer;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Services.Repository
+namespace Backend.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly IDbContextFactory<EverythingAppDbContext> _dbContextFactory;
+        private readonly IDbContextFactory<EverythingAppContext> _dbContextFactory;
 
-        public ProductRepository(IDbContextFactory<EverythingAppDbContext> dbContextFactory)
+        public ProductRepository(IDbContextFactory<EverythingAppContext> dbContextFactory)
         {
             _dbContextFactory = dbContextFactory;
         }

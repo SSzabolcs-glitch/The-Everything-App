@@ -1,12 +1,14 @@
-﻿namespace Backend.Models.Customer
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Backend.Models.Customer
 {
     public class Order
     {
         public int Id { get; init; }
 
         // Foreign key property
-        public int CustomerId { get; set; }
-        public Customer? Customer { get; set; }
+        public int UserId { get; set; }
+        public IdentityUser? User { get; set; }
         public int TotalPrice { get; init; }
 
 
