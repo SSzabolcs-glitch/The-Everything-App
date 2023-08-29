@@ -9,6 +9,7 @@ public class EverythingAppDbContext : DbContext
     {
         _connectionString = configuration.GetConnectionString("DefaultConnection");
     }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -32,10 +33,26 @@ public class EverythingAppDbContext : DbContext
             .HasIndex(c => c.ItemId)
             .IsUnique();
 
+        builder.Entity<Product>()
+        .HasData(
+            new Product { Id = 1, ItemId = 1234, ProductName = "pencil", Quantity = 65, UnitPrice = 120 },
+            new Product { Id = 2, ItemId = 2234, ProductName = "pen", Quantity = 498, UnitPrice = 300 },
+            new Product { Id = 3, ItemId = 3234, ProductName = "erasure", Quantity = 560, UnitPrice = 99 },
+            new Product { Id = 4, ItemId = 4234, ProductName = "scissors", Quantity = 67, UnitPrice = 1200 }
+            );
+
         builder.Entity<Customer>()
             .HasOne(c => c.Address)
             .WithOne(ss => ss.Customer)
             .HasForeignKey<Address>(ss => ss.CustomerId);
+
+        builder.Entity<Order>()
+            .HasIndex(o => o.Id)
+            .IsUnique();
+
+        builder.Entity<OrderItem>()
+            .HasIndex(o => o.Id)
+            .IsUnique();
     }
 
 }

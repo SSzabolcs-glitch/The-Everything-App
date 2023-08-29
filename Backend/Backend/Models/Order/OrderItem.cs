@@ -1,4 +1,7 @@
-﻿namespace Backend.Models.Customer
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Backend.Models.Customer
 {
     public class OrderItem
     {
@@ -13,7 +16,9 @@
         public Order? Order { get; set; }
 
         public int Quantity { get; init; }
+        [Column(TypeName = "decimal(18,4)")]
         public decimal? UnitPrice { get; init; }
+        [Column(TypeName = "decimal(18,4)")]
         public decimal? TotalPrice { get; init; }
     }
 }
