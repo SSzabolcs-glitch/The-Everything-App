@@ -12,28 +12,6 @@ namespace DatabaseTest.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
-        private readonly IUserRepository _userRepository;
 
-        public UserController(ILogger<UserController> logger, IUserRepository userRepository)
-        {
-            _logger = logger;
-            _userRepository = userRepository;
-        }
-
-        [HttpGet("GetUsers"), Authorize(Roles = "Admin")]
-        public async Task<IEnumerable<IdentityUser>> GetUsers()
-        {
-            try
-            {
-                var users = await _userRepository.GetAll();
-                return users;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error getting Users.");
-                throw;
-            }
-        }
     }
 }

@@ -1,13 +1,12 @@
 ﻿using Backend.Models.Customer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Repository
 {
     public interface IUserRepository
     {
-        Task<IEnumerable<IdentityUser>> GetAll();
-        IdentityUser? GetByName(string user);
-        void Delete(IdentityUser user);
-        void Update(IdentityUser user);
+        Task<IEnumerable<IdentityUser>> GetAllAsync();
+        Task<IdentityUser?> GetByEmailAsync(string email);
     }
 }

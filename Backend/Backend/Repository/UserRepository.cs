@@ -10,29 +10,22 @@ namespace Backend.Repository
     public class UserRepository : IUserRepository
     {
         private readonly EverythingAppContext _dbContext;
-
         public UserRepository(EverythingAppContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public async Task<IEnumerable<IdentityUser>> GetAll()
+        public async Task<IEnumerable<IdentityUser>> GetAllAsync()
         {
-            return _dbContext.Users.ToList();
+            return await _dbContext.Users.ToListAsync();
         }
 
-        public IdentityUser? GetByName(string userName)
+        public async Task<IdentityUser?> GetByEmailAsync(string email)
         {
-            return _dbContext.Users.FirstOrDefault(c => c.UserName == userName);
+            return await _dbContext.Users.FirstOrDefaultAsync(c => c.Email == email);
         }
         public void Delete(IdentityUser user)
         {
             _dbContext.Remove(user);
-            _dbContext.SaveChanges();
-        }
-
-        public void Update(IdentityUser user)
-        {
-            _dbContext.Update(user);
             _dbContext.SaveChanges();
         }
     }
