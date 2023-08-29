@@ -54,11 +54,13 @@
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 16px;
 }
   
 .buttons button[type="submit"] {
     background-color: #213547;
     color: white;
+    margin-right: 20px;
 }
   
   
