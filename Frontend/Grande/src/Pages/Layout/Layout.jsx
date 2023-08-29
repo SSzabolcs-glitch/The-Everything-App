@@ -29,6 +29,9 @@ const Layout = () => (
                     <Link to="/signup">
                         <button type="button">Sign Up</button>
                     </Link>
+                    <Link to="/login">
+                        <button type="button">Log In</button>
+                    </Link>
                 </div>
             </ul>
         </nav>

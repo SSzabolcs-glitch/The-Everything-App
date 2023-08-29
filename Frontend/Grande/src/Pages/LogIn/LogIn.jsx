@@ -2,29 +2,31 @@ import { useState } from "react";
 //import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomerForm from "../../Components/CustomerForm/CustomerForm.jsx";
-import "./SignUp.css";
+import "./LogIn.css";
 
-const createCustomer = (customer) => {
-  console.log(customer);
-  return fetch("https://localhost:7037/api/register", {
+const loginUser = (user) => {
+  console.log(user);
+  return fetch("https://localhost:7037/Auth/Login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(customer),
+    body: JSON.stringify(user),
   }).then((res) => res.json());
 };
 
-const SignUp = () => {
+const LogIn = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [token, setToken] = useState("");
 
-  const handleCreateCustomer = (customer) => {
-    console.log(customer)
+  const handleLogIn = (user) => {
+    console.log(user)
     setLoading(true);
-    createCustomer(customer)
-      .then(() => {
+    loginUser(user)
+      .then((data) => {
         setLoading(false);
+        setToken(data.token);
         navigate("/");
       })
   };
@@ -32,11 +34,11 @@ const SignUp = () => {
   return (
     <CustomerForm
       onCancel={() => navigate("/")}
-      onSave={handleCreateCustomer}
+      onSave={handleLogIn}
       disabled={loading}
-      isRegister={true}
+      isRegister={false}
     />
   );
 };
 
-export default SignUp;
+export default LogIn;

@@ -26,6 +26,7 @@
   .Layout nav button {
     padding: 0.5rem 1.7rem;
     font-weight: bold;
+    margin-left: 10px;
   }
 
   .button-container {
