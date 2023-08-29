@@ -18,10 +18,10 @@ namespace Backend.Services.Repository
             return dbContext.Products.ToList();
         }
 
-        public Product? GetByName(string productName)
+        public IEnumerable<Product?> GetByName(string productName)
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
-            return dbContext.Products.FirstOrDefault(c => c.ProductName == productName);
+            return dbContext.Products.Where(c => c.ProductName == productName).ToList();
         }
         public void Add(Product product)
         {

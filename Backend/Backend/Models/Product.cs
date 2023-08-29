@@ -8,7 +8,7 @@ public class Product
     public int Id { get; set; }
     public int ItemId { get; set; }
     public string? ProductName { get; set; }
-    [Column(TypeName = "decimal(18,4)")]
+    [Column(TypeName = "decimal(18,2)")]
     public decimal UnitPrice { get; set; }
     public int Quantity { get; set; }
 }

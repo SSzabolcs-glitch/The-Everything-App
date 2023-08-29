@@ -1,9 +1,12 @@
 ﻿using Backend.Models;
+using Backend.Services.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace Backend.Controllers
 {
@@ -12,12 +15,13 @@ namespace Backend.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ILogger<ProductController> _logger;
-        private readonly EverythingAppDbContext _context;
+        //private readonly EverythingAppDbContext _context;
+        private readonly IProductRepository _productRepository;
 
-        public ProductController(ILogger<ProductController> logger, EverythingAppDbContext context)
+        public ProductController(ILogger<ProductController> logger, IProductRepository productRepository)
         {
             _logger = logger;
-            _context = context;
+            _productRepository = productRepository;
         }
 
         [HttpGet("GetAll")]
@@ -25,7 +29,7 @@ namespace Backend.Controllers
         {
             try
             {
-                var products = await _context.Products.ToListAsync();
+                var products = _productRepository.GetAll();
                 return Ok(products);
             }
             catch (Exception ex) 
@@ -38,11 +42,11 @@ namespace Backend.Controllers
         [HttpGet("GetSpecificProduct")]
         public async Task<ActionResult<IEnumerable<Product>>> GetSpecificProductAsync([Required] string name)
         {
-           var products = _context.Products.Where(p => p.ProductName == name).ToList();
+           var products = _productRepository.GetByName(name);
 
-            if(products.Count == 0)
+            if(products.IsNullOrEmpty())
             {
-                return NotFound($"Product {name}  not found");
+                return NotFound($"Product {name} not found");
             }
 
             try
@@ -55,6 +59,21 @@ namespace Backend.Controllers
                 return NotFound("Error getting specific product");
             }
             
+        }
+
+        [HttpPost("AddNewProduct")]
+        public async Task<ActionResult> AddNewProduct(Product product)
+        {
+            try
+            {
+                _productRepository.Add(product);
+                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error registering new product");
+                return BadRequest("Error registering new product");
+            }
         }
     }
 }
