@@ -8,7 +8,7 @@ using System.Data;
 
 namespace DatabaseTest.Controllers
 {
-    [Route("controller")]
+    [Route("api")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -20,12 +20,14 @@ namespace DatabaseTest.Controllers
             _logger = logger;
             _userRepository = userRepository;
         }
-        [HttpGet(), Authorize(Roles = "Admin")]
-        public IEnumerable<IdentityUser> GetUsers()
+
+        [HttpGet("GetUsers"), Authorize(Roles = "Admin")]
+        public async Task<IEnumerable<IdentityUser>> GetUsers()
         {
             try
             {
-                return _userRepository.GetAll();
+                var users = await _userRepository.GetAll();
+                return users;
             }
             catch (Exception ex)
             {

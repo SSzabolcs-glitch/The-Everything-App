@@ -3,6 +3,7 @@ using Backend.Services.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -19,10 +20,10 @@ var validIssuer = appSettings["ValidIssuer"];
 var validAudience = appSettings["ValidAudience"];
 var issuerSigningKey = builder.Configuration["UserSecrets:IssuerSigningKey"];
 
-AddAuthentication();
 AddServices();
 ConfigureSwagger();
 AddDbContext();
+AddAuthentication();
 AddIdentity();
 
 var app = builder.Build();
@@ -100,7 +101,12 @@ void AddDbContext()
 void AddAuthentication()
 {
     builder.Services.AddScoped<IAuthService, AuthService>();
-    builder.Services.AddScoped<ITokenService, TokenService>();
+    builder.Services.AddScoped<ITokenService>(provider =>
+    {
+        var configuration = provider.GetRequiredService<IConfiguration>();
+        var issuerSigningKey = configuration["UserSecrets:IssuerSigningKey"];
+        return new TokenService(issuerSigningKey!);
+    });
 
     builder.Services
         .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -116,7 +122,7 @@ void AddAuthentication()
                 ValidIssuer = validIssuer,
                 ValidAudience = validAudience,
                 IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(issuerSigningKey)
+                    Encoding.UTF8.GetBytes(issuerSigningKey!)
                 ),
             };
         });

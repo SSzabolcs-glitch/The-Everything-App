@@ -15,7 +15,7 @@ namespace Backend.Repository
         {
             _dbContext = dbContext;
         }
-        public IEnumerable<IdentityUser> GetAll()
+        public async Task<IEnumerable<IdentityUser>> GetAll()
         {
             return _dbContext.Users.ToList();
         }

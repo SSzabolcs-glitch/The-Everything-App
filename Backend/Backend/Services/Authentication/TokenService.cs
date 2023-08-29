@@ -11,6 +11,13 @@ namespace Backend.Services.Authentication
     {
         private const int ExpirationMinutes = 30;
 
+        private readonly string _issuerSigningKey;
+
+        public TokenService(string issuerSigningKey)
+        {
+            _issuerSigningKey = issuerSigningKey;
+        }
+
         public string CreateToken(IdentityUser user, IList<string> roles)
         {
 
@@ -68,7 +75,7 @@ namespace Backend.Services.Authentication
         {
             return new SigningCredentials(
                 new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes("!SomethingSecret!")
+                    Encoding.UTF8.GetBytes(_issuerSigningKey)
                 ),
                 SecurityAlgorithms.HmacSha256
             );
