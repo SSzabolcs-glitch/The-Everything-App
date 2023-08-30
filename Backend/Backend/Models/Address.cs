@@ -1,4 +1,7 @@
-﻿namespace Backend.Models.Customer
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
+namespace Backend.Models
 {
     public class Address
     {
@@ -12,7 +15,7 @@
         public string? Other { get; init; }
 
         // Foreign key property
-        public int CustomerId { get; set; }
-        public Customer? Customer { get; set; }
+        public string? UserId { get; set; }
+        public IdentityUser? User { get; set; }
     }
 }
