@@ -75,5 +75,37 @@ namespace Backend.Controllers
                 return BadRequest("Error registering new product");
             }
         }
+
+        /*
+        [HttpDelete("DeleteProduct")]
+        public async Task<ActionResult> DeleteProductAsync(Product product)
+        {
+            try
+            {
+                await _productRepository.DeleteAsync(product);
+                return Ok($"{product.ProductName} deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting product");
+                return BadRequest("Error deleting product");
+            }
+        }
+        */
+
+        [HttpDelete("DeleteProductById")]
+        public async Task<ActionResult> DeleteProductByIdAsync([Required]int id)
+        {
+            try
+            {
+                var product = await _productRepository.DeleteByIdAsync(id);
+                return Ok($"{product.ProductName} deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting product");
+                return BadRequest("Error deleting product");
+            }
+        }
     }
 }

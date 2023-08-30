@@ -30,11 +30,21 @@ namespace Backend.Services.Repository
             dbContext.SaveChanges();
             return product;
         }
-        public void Delete(Product product)
+        public async Task<Product> DeleteAsync(Product product)
         {
-            using var dbContext = _dbContextFactory.CreateDbContext();
+            await using var dbContext = _dbContextFactory.CreateDbContext();
             dbContext.Remove(product);
             dbContext.SaveChanges();
+            return product;
+        }
+
+        public async Task<Product> DeleteByIdAsync(int id)
+        {
+            await using var dbContext = _dbContextFactory.CreateDbContext();
+            var product = dbContext.Products.First(p => p.Id == id);
+            dbContext.Remove(product);
+            dbContext.SaveChanges();
+            return product;
         }
 
         public void Update(Product product)

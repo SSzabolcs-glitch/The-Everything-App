@@ -7,7 +7,8 @@ namespace Backend.Services.Repository
         Task<IEnumerable<Product>> GetAllAsync();
         Task<IEnumerable<Product?>> GetByNameAsync(string productName);
         Task<Product> AddAsync(Product product);
-        void Delete(Product product);
+        Task<Product> DeleteAsync(Product product);
+        Task<Product> DeleteByIdAsync(int id);
         void Update(Product product);
     }
 }
