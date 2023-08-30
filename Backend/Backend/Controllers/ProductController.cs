@@ -107,5 +107,20 @@ namespace Backend.Controllers
                 return BadRequest("Error deleting product");
             }
         }
+
+        [HttpPut("UpdateProduct")]
+        public async Task<ActionResult> UpdateProduct([Required] int id, Product freshProduct)
+        {
+            try
+            {
+                var product = await _productRepository.UpdateProductAsync(id, freshProduct);
+                return Ok($"Id: {product.Id}, ({product.ProductName}) updated successfully");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating product");
+                return BadRequest("Error updating product");
+            }
+        }
     }
 }

@@ -16,9 +16,9 @@ namespace Backend.Models.Customer
         public Order? Order { get; set; }
 
         public int Quantity { get; init; }
-        [Column(TypeName = "decimal(18,4)")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal? UnitPrice { get; init; }
-        [Column(TypeName = "decimal(18,4)")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal? TotalPrice { get; init; }
     }
 }

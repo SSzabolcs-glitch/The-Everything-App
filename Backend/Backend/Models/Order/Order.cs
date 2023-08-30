@@ -1,4 +1,7 @@
-﻿namespace Backend.Models.Customer
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Backend.Models.Customer
 {
     public class Order
     {
@@ -7,7 +10,8 @@
         // Foreign key property
         public int CustomerId { get; set; }
         public Customer? Customer { get; set; }
-        public int TotalPrice { get; init; }
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TotalPrice { get; init; }
 
 
         // Foreign key properties

@@ -47,11 +47,18 @@ namespace Backend.Services.Repository
             return product;
         }
 
-        public void Update(Product product)
+        public async Task<Product> UpdateProductAsync(int id, Product product)
         {
-            using var dbContext = _dbContextFactory.CreateDbContext();
-            dbContext.Update(product);
+            await using var dbContext = _dbContextFactory.CreateDbContext();
+            var productToUpdate = dbContext.Products.First(p => p.Id == id);
+
+            productToUpdate.ItemId = product.ItemId;
+            productToUpdate.ProductName = product.ProductName;
+            productToUpdate.UnitPrice = product.UnitPrice;
+            productToUpdate.Quantity = product.Quantity;
             dbContext.SaveChanges();
+
+            return productToUpdate;
         }
     }
 }

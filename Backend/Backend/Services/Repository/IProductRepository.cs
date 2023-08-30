@@ -9,6 +9,6 @@ namespace Backend.Services.Repository
         Task<Product> AddAsync(Product product);
         Task<Product> DeleteAsync(Product product);
         Task<Product> DeleteByIdAsync(int id);
-        void Update(Product product);
+        Task<Product> UpdateProductAsync(int id, Product product);
     }
 }
