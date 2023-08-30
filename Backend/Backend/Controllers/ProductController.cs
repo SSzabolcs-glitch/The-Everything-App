@@ -1,11 +1,13 @@
 ﻿using Backend.Models;
 using Backend.Services.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Runtime.CompilerServices;
 
 namespace Backend.Controllers
@@ -58,10 +60,9 @@ namespace Backend.Controllers
                 _logger.LogError(ex, "Error getting specific product");
                 return NotFound("Error getting specific product");
             }
-            
         }
 
-        [HttpPost("AddNewProduct")]
+        [HttpPost("AddNewProduct"), Authorize(Roles = "Admin")]
         public async Task<ActionResult> AddNewProductAsync(Product product)
         {
             try
@@ -93,7 +94,7 @@ namespace Backend.Controllers
         }
         */
 
-        [HttpDelete("DeleteProductById")]
+        [HttpDelete("DeleteProductById"), Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteProductByIdAsync([Required]int id)
         {
             try
@@ -108,7 +109,7 @@ namespace Backend.Controllers
             }
         }
 
-        [HttpPut("UpdateProduct")]
+        [HttpPut("UpdateProduct"), Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdateProduct([Required] int id, Product freshProduct)
         {
             try
