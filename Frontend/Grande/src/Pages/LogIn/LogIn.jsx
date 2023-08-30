@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 //import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomerForm from "../../Components/CustomerForm/CustomerForm.jsx";
-import { TokenContext } from "../../main";
+import { UserContext } from "../../main";
 import "./LogIn.css";
 
 const loginUser = (user) => {
@@ -19,16 +19,14 @@ const loginUser = (user) => {
 const LogIn = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  //const [token, setToken] = useState("");
-  const context = useContext(TokenContext); //connect to TokenContext
+  const context = useContext(UserContext); //connect to UserContext
 
   const handleLogIn = (user) => {
     setLoading(true);
     loginUser(user)
       .then((data) => {
         setLoading(false);
-        //setToken(data.token);
-        context.setToken(data.token); //set the token in the context
+        context.setUser(data); //set the user in the context
         navigate("/");
       })
       .catch((error) => {
@@ -37,7 +35,7 @@ const LogIn = () => {
       });
   };
 
-  if (context.token) {
+  if (context.user) {
     return <p>You are already logged in.</p>;
   }
 

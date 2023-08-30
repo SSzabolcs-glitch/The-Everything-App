@@ -40,18 +40,26 @@ const router = createBrowserRouter([
   },
 ]);
 
-//React context for the token
-export const TokenContext = React.createContext();
+//React context for the user
+export const UserContext = React.createContext();
 
 const App = () => {
-  const [token, setToken] = React.useState("");
+  const [user, setUser] = React.useState(null);
+
+  const login = (userData) => {
+    setUser(userData);
+  };
+
+  const logout = () => {
+    setUser(null);
+  };
 
   return (
-    <TokenContext.Provider value={{ token, setToken }}>
+    <UserContext.Provider value={{ user, setUser, login, logout }}>
       <React.StrictMode>
         <RouterProvider router={router} />
       </React.StrictMode>
-    </TokenContext.Provider>
+    </UserContext.Provider>
   );
 };
 

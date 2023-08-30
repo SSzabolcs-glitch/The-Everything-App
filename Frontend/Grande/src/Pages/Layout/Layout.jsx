@@ -1,15 +1,17 @@
 import { useContext } from 'react';
 import { Outlet, Link } from "react-router-dom";
-import { TokenContext } from '../../main.jsx';
+import { UserContext } from '../../main.jsx';
 
 import "./Layout.css";
 
 const Layout = () => {
-    const context  = useContext(TokenContext);
+    const context  = useContext(UserContext);
 
+    /*
     const handleLogout = () => {
-        context.setToken("");
+        context.setUser(null);
     };
+    */
 
     return (
         <div className="Layout">
@@ -35,7 +37,7 @@ const Layout = () => {
                         </li>
                     </div>
                     <div className="button-container">
-                        {!context.token && (
+                        {!context.user && (
                             <>
                             <Link to="/signup">
                                 <button type="button">Sign Up</button>
@@ -45,10 +47,10 @@ const Layout = () => {
                             </Link>
                             </>
                         )}
-                        {context.token && (
+                        {context.user && (
                             <>
                             <Link to="/">
-                                <button type="button" onClick={handleLogout}>Log Out</button>
+                                <button type="button" onClick={context.logout}>Log Out</button>
                             </Link>
                             </>
                         )}
