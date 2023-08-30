@@ -9,6 +9,7 @@ import CustomerList from './Pages/CustomerList'
 import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
 import LogIn from './Pages/LogIn';
+import UserProfile from './Pages/UserProfile';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/goodslist",
         element: <GoodsList />,
+      },
+      {
+        path: "/profile",
+        element: <UserProfile />,
       },
     ],
   },

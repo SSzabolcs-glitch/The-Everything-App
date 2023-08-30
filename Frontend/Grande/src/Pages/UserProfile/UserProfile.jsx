@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import UserContext from './UserContext';
+import { UserContext } from '../../main.jsx'; //named import
+import "./UserProfile.css"; //default import
 
 const UserProfile = () => {
   const { user, setUser, login, logout } = useContext(UserContext);
@@ -8,8 +9,7 @@ const UserProfile = () => {
     <div>
       {user ? (
         <div>
-          <h2>Hello, {user.username}!</h2>
-          {/*<button onClick={logout}>Log Out</button>*/}
+          <h2>Hello, {user.userName}!</h2>
         </div>
       ):(null)}
     </div>

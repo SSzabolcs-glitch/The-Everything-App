@@ -52,6 +52,9 @@ const Layout = () => {
                             <Link to="/">
                                 <button type="button" onClick={context.logout}>Log Out</button>
                             </Link>
+                            <Link to="/profile">
+                                <button type="button">My Profile</button>
+                            </Link>
                             </>
                         )}
                     </div>
