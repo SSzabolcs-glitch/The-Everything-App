@@ -1,7 +1,10 @@
-﻿using Backend.Models.Customer;
-using Backend.Services.Repository;
+﻿using Backend.Models;
+using Backend.Repository;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Net;
 
 namespace DatabaseTest.Controllers
@@ -10,70 +13,91 @@ namespace DatabaseTest.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly ILogger<UserController> _logger;
+        private readonly IUserRepository _userRepository;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AdminController(ICustomerRepository customerRepository)
+        public AdminController(ILogger<UserController> logger, IUserRepository userRepository, UserManager<IdentityUser> userManager)
         {
-            _customerRepository = customerRepository;
+            _logger = logger;
+            _userRepository = userRepository;
+            _userManager = userManager;
         }
 
-        // GET: api/customers
-        [HttpGet("customers")]
-        public IEnumerable<Customer> GetCustomers()
-        {
-            try
-            {
-                return _customerRepository.GetAll();
-            }
-            catch (Exception ex)
-            {
-                return Enumerable.Empty<Customer>();
-            }
-        }
-
-        // GET: api/customer
-        [HttpGet("customer")]
-        public Customer GetCustomer(string firstname, string lastname)
+        [HttpGet("GetUsers"), Authorize(Roles = "Admin")]
+        public async Task<IEnumerable<IdentityUser>> GetUsers()
         {
             try
             {
-                var result = _customerRepository.GetByName(firstname, lastname);
-                return result;
+                var users = await _userManager.GetUsersInRoleAsync("User");
+                return users;
             }
             catch (Exception ex)
             {
-                throw new FileNotFoundException("Customer not found.");
+                _logger.LogError(ex, "Error getting Users.");
+                throw;
             }
         }
 
-        // PUT: api/customer
-        [HttpPut("customer")]
-        public void UpdateCustomer(string firstname, string lastname)
+        [HttpGet("GetUser"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<IdentityUser>> GetUser(string email)
         {
             try
             {
-                var customer = _customerRepository.GetByName(firstname, lastname);
-                _customerRepository.Update(customer);
+                var user = await _userManager.FindByEmailAsync(email);
+                return Ok(user);
             }
             catch (Exception ex)
             {
-                throw new FileNotFoundException("Customer not found.");
+                _logger.LogError(ex, "Error getting User.");
+                throw;
             }
         }
 
-        // DELETE: api/customer
-        [HttpDelete("customer")]
-        public void DeleteCustomer(string firstname, string lastname)
+        [HttpPut("UpdateUser")]
+        public async Task<IActionResult> UpdateUser(string email, IdentityUser user)
         {
             try
             {
-                var customer = _customerRepository.GetByName(firstname, lastname);
-                _customerRepository.Delete(customer);
+                var existingUser = await _userManager.FindByEmailAsync(email);
+                if (existingUser == null) return NotFound();
+
+                existingUser.UserName = user.UserName;
+                existingUser.Email = user.Email;
+
+                var result = await _userManager.UpdateAsync(existingUser);
+
+                return Ok($"Updated {existingUser}.");
             }
             catch (Exception ex)
             {
-                throw new FileNotFoundException("Customer not found.");
+                _logger.LogError(ex, "Error updating User.");
+                throw;
             }
         }
+
+        [HttpDelete("DeleteUser"), Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteUser(string email)
+        {
+            try
+            {
+                var user = await _userRepository.GetByEmailAsync(email);
+                if(user == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    await _userManager.DeleteAsync(user);
+                    return Ok($"User {user.UserName} Deleted.");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting User.");
+                throw;
+            }
+        }
+
     }
 }
