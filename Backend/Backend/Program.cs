@@ -1,3 +1,4 @@
+using Backend.Models;
 using Backend.Repository;
 using Backend.Services.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -46,6 +48,7 @@ app.MapControllers();
 
 AddRoles();
 AddAdmin();
+FillProducts();
 
 app.Run();
 
@@ -60,7 +63,7 @@ void AddServices()
     builder.Services.AddScoped<IProductRepository, ProductRepository>();
     builder.Services.AddScoped<IOrderRepository, OrderRepository>();
     builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
-    
+
     builder.Services.AddCors(options =>
     {
         options.AddPolicy("AllowAllOrigins", builder =>
@@ -197,5 +200,29 @@ async Task CreateAdminIfNotExists()
         {
             await userManager.AddToRoleAsync(admin, "Admin");
         }
+    }
+}
+
+void FillProducts()
+{
+    var tProduct = FillProductsIfNotExists();
+    tProduct.Wait();
+}
+
+async Task FillProductsIfNotExists()
+{
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<EverythingAppContext>();
+
+    if (!dbContext.Products.Any())
+    {
+        await dbContext.Products.AddRangeAsync(
+            new Product { ProductName = "pencil", Quantity = 65, UnitPrice = 120 },
+            new Product { ProductName = "pen", Quantity = 498, UnitPrice = 300 },
+            new Product { ProductName = "erasure", Quantity = 560, UnitPrice = 99 },
+            new Product { ProductName = "scissors", Quantity = 67, UnitPrice = 120 }
+        );
+
+        await dbContext.SaveChangesAsync();
     }
 }

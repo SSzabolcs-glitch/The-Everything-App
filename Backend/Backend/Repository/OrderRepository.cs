@@ -1,4 +1,6 @@
 ﻿using Backend.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Repository
@@ -35,6 +37,16 @@ namespace Backend.Repository
         {
             _dbContext.Update(order);
             _dbContext.SaveChanges();
+        }
+        public async Task<List<Order>> GetOrdersByUserIdAsync(string userId)
+        {
+            var orders = await _dbContext.Orders
+                .Where(o => o.UserId == userId)
+                .Include(o => o.User)  // Include the related user data
+                .Include(o => o.Address)  // Include the related address data
+                .ToListAsync();
+
+            return orders;
         }
     }
 }

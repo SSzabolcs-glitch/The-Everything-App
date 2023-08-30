@@ -12,6 +12,24 @@ namespace DatabaseTest.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IOrderRepository _orderRepository;
 
+        public UserController(IOrderRepository orderRepository, UserManager<IdentityUser> userManager)
+        {
+            _orderRepository = orderRepository;
+            _userManager = userManager;
+        }
+
+        [HttpPost("GetUserOrders")]
+        public async Task<ActionResult<List<Order>>> GetUserOrders(string name)
+        {
+
+            var user = await _userManager.FindByNameAsync(name);
+
+            List<Order> userOrders = await _orderRepository.GetOrdersByUserIdAsync(user!.Id);
+
+            return userOrders;
+        }
     }
 }

@@ -4,10 +4,11 @@ namespace Backend.Repository
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetAll();
-        Product? GetByName(string productName);
-        void Add(Product product);
-        void Delete(Product product);
-        void Update(Product product);
+        Task<IEnumerable<Product>> GetAllAsync();
+        Task<IEnumerable<Product?>> GetByNameAsync(string productName);
+        Task<Product> AddAsync(Product product);
+        Task<Product> DeleteAsync(Product product);
+        Task<Product> DeleteByIdAsync(int id);
+        Task<Product> UpdateProductAsync(int id, Product product);
     }
 }
