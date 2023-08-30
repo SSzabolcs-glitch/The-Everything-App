@@ -54,9 +54,9 @@
     color: rgba(91, 146, 194, 1);
   }
 
-  .menu-container {
-    margin: auto;
-  }
+  /*.menu-container {
+    
+  }*/
 
   .menu {
     display: inline-block; /*align the menus next to each other*/

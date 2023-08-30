@@ -7,6 +7,10 @@ import "./Layout.css";
 const Layout = () => {
     const context  = useContext(TokenContext);
 
+    const handleLogout = () => {
+        context.setToken("");
+    };
+
     return (
         <div className="Layout">
             <nav>
@@ -38,6 +42,13 @@ const Layout = () => {
                             </Link>
                             <Link to="/login">
                                 <button type="button">Log In</button>
+                            </Link>
+                            </>
+                        )}
+                        {context.token && (
+                            <>
+                            <Link to="/">
+                                <button type="button" onClick={handleLogout}>Log Out</button>
                             </Link>
                             </>
                         )}

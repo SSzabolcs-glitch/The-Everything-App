@@ -19,7 +19,7 @@ const loginUser = (user) => {
 const LogIn = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [token, setToken] = useState("");
+  //const [token, setToken] = useState("");
   const context = useContext(TokenContext); //connect to TokenContext
 
   const handleLogIn = (user) => {
@@ -27,7 +27,7 @@ const LogIn = () => {
     loginUser(user)
       .then((data) => {
         setLoading(false);
-        setToken(data.token);
+        //setToken(data.token);
         context.setToken(data.token); //set the token in the context
         navigate("/");
       })
