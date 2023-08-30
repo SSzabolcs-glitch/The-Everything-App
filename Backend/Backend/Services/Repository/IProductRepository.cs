@@ -4,9 +4,9 @@ namespace Backend.Services.Repository
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetAll();
-        IEnumerable<Product?> GetByName(string productName);
-        void Add(Product product);
+        Task<IEnumerable<Product>> GetAllAsync();
+        Task<IEnumerable<Product?>> GetByNameAsync(string productName);
+        Task<Product> AddAsync(Product product);
         void Delete(Product product);
         void Update(Product product);
     }

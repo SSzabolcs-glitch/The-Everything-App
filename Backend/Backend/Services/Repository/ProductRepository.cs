@@ -12,22 +12,23 @@ namespace Backend.Services.Repository
         {
             _dbContextFactory = dbContextFactory;
         }
-        public IEnumerable<Product> GetAll()
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            using var dbContext = _dbContextFactory.CreateDbContext();
+            await using var dbContext = _dbContextFactory.CreateDbContext();
             return dbContext.Products.ToList();
         }
 
-        public IEnumerable<Product?> GetByName(string productName)
+        public async Task<IEnumerable<Product?>> GetByNameAsync(string productName)
         {
-            using var dbContext = _dbContextFactory.CreateDbContext();
+            await using var dbContext = _dbContextFactory.CreateDbContext();
             return dbContext.Products.Where(c => c.ProductName == productName).ToList();
         }
-        public void Add(Product product)
+        public async Task<Product> AddAsync(Product product)
         {
-            using var dbContext = _dbContextFactory.CreateDbContext();
+            await using var dbContext = _dbContextFactory.CreateDbContext();
             dbContext.Add(product);
             dbContext.SaveChanges();
+            return product;
         }
         public void Delete(Product product)
         {

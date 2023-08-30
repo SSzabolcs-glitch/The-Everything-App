@@ -29,7 +29,7 @@ namespace Backend.Controllers
         {
             try
             {
-                var products = _productRepository.GetAll();
+                var products = await _productRepository.GetAllAsync();
                 return Ok(products);
             }
             catch (Exception ex) 
@@ -42,7 +42,7 @@ namespace Backend.Controllers
         [HttpGet("GetSpecificProduct")]
         public async Task<ActionResult<IEnumerable<Product>>> GetSpecificProductAsync([Required] string name)
         {
-           var products = _productRepository.GetByName(name);
+           var products = await _productRepository.GetByNameAsync(name);
 
             if(products.IsNullOrEmpty())
             {
@@ -62,12 +62,12 @@ namespace Backend.Controllers
         }
 
         [HttpPost("AddNewProduct")]
-        public async Task<ActionResult> AddNewProduct(Product product)
+        public async Task<ActionResult> AddNewProductAsync(Product product)
         {
             try
             {
-                _productRepository.Add(product);
-                 return Ok();
+                await _productRepository.AddAsync(product);
+                 return Ok($"{product.ProductName} added successfully");
             }
             catch (Exception ex)
             {
