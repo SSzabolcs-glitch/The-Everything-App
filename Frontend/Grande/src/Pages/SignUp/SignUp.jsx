@@ -6,8 +6,9 @@ import "./SignUp.css";
 
 const createCustomer = (customer) => {
   console.log(customer);
-  return fetch("https://localhost:7037/api/register", {
+  return fetch("https://localhost:7037/Auth/Register", {
     method: "POST",
+    mode: "cors",
     headers: {
       "Content-Type": "application/json",
     },
@@ -34,6 +35,7 @@ const SignUp = () => {
       onCancel={() => navigate("/")}
       onSave={handleCreateCustomer}
       disabled={loading}
+      isRegister={true}
     />
   );
 };

@@ -1,6 +1,6 @@
 .white-bar {
     width: 100vw;
-    height: 50px;
+    height: 30px;
     background-color: white;
 }
 
@@ -8,23 +8,23 @@
     display: flex; /*flexbox arrangement*/
     justify-content: space-between; /*distribution of space between elements*/
     margin: 0;
-    padding: 160px;
-    padding-top: 100px;
+    padding: 140px;
+    padding-top: 80px;
     color: rgba(55, 63, 65, 1);
     height: 600px;
 }
 
 .main-text {
-    font-size: 70px;
-    width: 55%;
+    font-size: 60px;
+    width: 40vw;
     font-weight: 400;
     line-height: 1.2; /*space between lines*/
 }
 
 .main-text-2 {
     padding-top: 30px;
-    font-size: 30px;
-    width: 100%;
+    font-size: 26px;
+    width: 25vw;
     font-weight: 200;
 }
 
@@ -38,9 +38,9 @@
 }
 
 .button-get-started {
-    font-size: 20px;
+    font-size: 18px;
     background-color: rgb(26, 43, 66);
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .what-we-offer {

@@ -60,6 +60,16 @@ void AddServices()
     builder.Services.AddScoped<IProductRepository, ProductRepository>();
     builder.Services.AddScoped<IOrderRepository, OrderRepository>();
     builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+    
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAllOrigins", builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+    });
 }
 
 void ConfigureSwagger()

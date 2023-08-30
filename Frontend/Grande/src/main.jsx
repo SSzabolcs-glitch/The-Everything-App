@@ -8,6 +8,8 @@ import GoodsList from './Pages/GoodsList'
 import CustomerList from './Pages/CustomerList'
 import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
+import LogIn from './Pages/LogIn';
+import UserProfile from './Pages/UserProfile';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
+        path: "/login",
+        element: <LogIn />,
+      },
+      {
         path: "/customerlist",
         element: <CustomerList />,
       },
@@ -31,14 +37,36 @@ const router = createBrowserRouter([
         path: "/goodslist",
         element: <GoodsList />,
       },
+      {
+        path: "/profile",
+        element: <UserProfile />,
+      },
     ],
   },
 ]);
 
+//React context for the user
+export const UserContext = React.createContext();
+
+const App = () => {
+  const [user, setUser] = React.useState(null);
+
+  const login = (userData) => {
+    setUser(userData);
+  };
+
+  const logout = () => {
+    setUser(null);
+  };
+
+  return (
+    <UserContext.Provider value={{ user, setUser, login, logout }}>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </UserContext.Provider>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-);
+root.render(<App />);
