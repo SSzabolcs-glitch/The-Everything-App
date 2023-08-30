@@ -1,4 +1,4 @@
-﻿using Backend.Models.Customer;
+﻿using Backend.Models;
 
 namespace Backend.Repository
 {

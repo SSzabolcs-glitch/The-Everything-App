@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(EverythingAppContext))]
-    [Migration("20230828133459_initialMigration")]
+    [Migration("20230830100026_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Backend.Models.Customer.Address", b =>
+            modelBuilder.Entity("Backend.Models.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,29 +53,23 @@ namespace Backend.Migrations
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Addresses");
                 });
 
-            modelBuilder.Entity("Backend.Models.Customer.Order", b =>
+            modelBuilder.Entity("Backend.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("AddressId")
-                        .HasColumnType("int");
 
                     b.Property<int>("BillingAddressId")
                         .HasColumnType("int");
@@ -86,22 +80,19 @@ namespace Backend.Migrations
                     b.Property<int>("TotalPrice")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
+                    b.HasIndex("BillingAddressId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Backend.Models.Customer.OrderItem", b =>
+            modelBuilder.Entity("Backend.Models.OrderItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,10 +110,7 @@ namespace Backend.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal?>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal?>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10, 2)");
 
                     b.HasKey("Id");
 
@@ -141,9 +129,6 @@ namespace Backend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ItemId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
@@ -151,7 +136,7 @@ namespace Backend.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5, 2)");
 
                     b.HasKey("Id");
 
@@ -356,40 +341,42 @@ namespace Backend.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Backend.Models.Customer.Address", b =>
+            modelBuilder.Entity("Backend.Models.Address", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Backend.Models.Customer.Order", b =>
+            modelBuilder.Entity("Backend.Models.Order", b =>
                 {
-                    b.HasOne("Backend.Models.Customer.Address", "Address")
+                    b.HasOne("Backend.Models.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("AddressId");
+                        .HasForeignKey("BillingAddressId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Address");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Backend.Models.Customer.OrderItem", b =>
+            modelBuilder.Entity("Backend.Models.OrderItem", b =>
                 {
-                    b.HasOne("Backend.Models.Customer.Order", "Order")
+                    b.HasOne("Backend.Models.Order", "Order")
                         .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Backend.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -448,6 +435,11 @@ namespace Backend.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Backend.Models.Product", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

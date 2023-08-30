@@ -1,5 +1,4 @@
 using Backend.Models;
-using Backend.Models.Customer;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Repository;

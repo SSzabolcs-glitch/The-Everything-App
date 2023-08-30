@@ -56,9 +56,8 @@ namespace Backend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ItemId = table.Column<int>(type: "int", nullable: false),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UnitPrice = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -100,15 +99,14 @@ namespace Backend.Migrations
                     Sreet = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HouseNumber = table.Column<int>(type: "int", nullable: false),
                     Other = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    UserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Addresses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Addresses_AspNetUsers_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Addresses_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
@@ -204,24 +202,23 @@ namespace Backend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    UserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     TotalPrice = table.Column<int>(type: "int", nullable: false),
                     ShippingAddressId = table.Column<int>(type: "int", nullable: false),
-                    BillingAddressId = table.Column<int>(type: "int", nullable: false),
-                    AddressId = table.Column<int>(type: "int", nullable: true)
+                    BillingAddressId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_Addresses_AddressId",
-                        column: x => x.AddressId,
+                        name: "FK_Orders_Addresses_BillingAddressId",
+                        column: x => x.BillingAddressId,
                         principalTable: "Addresses",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Orders_AspNetUsers_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Orders_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
@@ -235,8 +232,7 @@ namespace Backend.Migrations
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
+                    TotalPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -256,9 +252,9 @@ namespace Backend.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Addresses_UserId1",
+                name: "IX_Addresses_UserId",
                 table: "Addresses",
-                column: "UserId1");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -310,14 +306,14 @@ namespace Backend.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_AddressId",
+                name: "IX_Orders_BillingAddressId",
                 table: "Orders",
-                column: "AddressId");
+                column: "BillingAddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_UserId1",
+                name: "IX_Orders_UserId",
                 table: "Orders",
-                column: "UserId1");
+                column: "UserId");
         }
 
         /// <inheritdoc />

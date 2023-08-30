@@ -1,4 +1,4 @@
-﻿namespace Backend.Models.Customer
+﻿namespace Backend.Models
 {
     public class OrderItem
     {
@@ -12,8 +12,7 @@
         public int OrderId { get; set; }
         public Order? Order { get; set; }
 
-        public int Quantity { get; init; }
-        public decimal? UnitPrice { get; init; }
-        public decimal? TotalPrice { get; init; }
+        public int Quantity { get; set; }
+        public decimal? TotalPrice { get; set; }
     }
 }

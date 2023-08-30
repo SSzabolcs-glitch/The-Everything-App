@@ -1,4 +1,4 @@
-﻿using Backend.Models.Customer;
+﻿using Backend.Models;
 using Backend.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

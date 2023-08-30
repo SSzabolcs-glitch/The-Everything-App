@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Backend.Models.Customer
+namespace Backend.Models
 {
     public class Order
     {
         public int Id { get; init; }
 
-        // Foreign key property
-        public int UserId { get; set; }
+        // User Foreign key property
+        public string? UserId { get; set; }
         public IdentityUser? User { get; set; }
         public int TotalPrice { get; init; }
 
 
-        // Foreign key properties
+        // Address Foreign key properties
         public int ShippingAddressId { get; set; }
         public int BillingAddressId { get; set; }
         public Address? Address { get; set; }

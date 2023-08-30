@@ -1,4 +1,4 @@
-﻿using Backend.Models.Customer;
+﻿using Backend.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

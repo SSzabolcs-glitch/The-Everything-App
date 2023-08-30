@@ -51,14 +51,14 @@ namespace Backend.Services.Authentication
             var isPasswordValid = await _userManager.CheckPasswordAsync(managedUser, password);
             if (!isPasswordValid)
             {
-                return InvalidPassword(email, managedUser.UserName);
+                return InvalidPassword(email, managedUser.UserName!);
             }
 
             var roles = await _userManager.GetRolesAsync(managedUser);
 
             var accessToken = _tokenService.CreateToken(managedUser, roles);
 
-            return new AuthResult(true, managedUser.Email, managedUser.UserName, accessToken);
+            return new AuthResult(true, managedUser.Email!, managedUser.UserName!, accessToken);
         }
 
         private static AuthResult InvalidEmail(string email)
