@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 
 namespace Backend.Controllers
@@ -36,7 +37,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error getting products");
+                _logger.LogError(ex, "Error getting products", ex.Message);
                 return NotFound("Error getting products");
             }
         }
@@ -57,7 +58,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error getting specific product");
+                _logger.LogError(ex, "Error getting specific product", ex.Message);
                 return NotFound("Error getting specific product");
             }
         }
@@ -67,12 +68,13 @@ namespace Backend.Controllers
         {
             try
             {
+                //product.UnitPrice = decimal.Parse(product.UnitPrice.ToString("0.00", CultureInfo.InvariantCulture));
                 await _productRepository.AddAsync(product);
                 return Ok($"{product.ProductName} added successfully");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error registering new product");
+                _logger.LogError(ex, "Error registering new product", ex.Message);
                 return BadRequest("Error registering new product");
             }
         }
@@ -104,7 +106,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error deleting product");
+                _logger.LogError(ex, "Error deleting product", ex.Message);
                 return BadRequest("Error deleting product");
             }
         }
@@ -119,7 +121,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error updating product");
+                _logger.LogError(ex, "Error updating product", ex.Message);
                 return BadRequest("Error updating product");
             }
         }
