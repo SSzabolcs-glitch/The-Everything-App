@@ -1,0 +1,19 @@
+.admin-buttons-container {
+    margin: auto;
+    align-items: center;
+}
+
+.profile-welcome-text {
+    margin: auto;
+    text-align: center;
+    color: rgb(26, 43, 66);
+}
+
+.profile-container {
+    align-items: center;
+}
+
+.admin-button {
+    margin-right: 20px;
+    color:white;
+}

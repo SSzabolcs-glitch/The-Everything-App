@@ -55,11 +55,11 @@ namespace DatabaseTest.Controllers
         }
 
         [HttpPut("UpdateUser")]
-        public async Task<IActionResult> UpdateUser(string email, IdentityUser user)
+        public async Task<IActionResult> UpdateUser([FromBody] IdentityUser user)
         {
             try
             {
-                var existingUser = await _userManager.FindByEmailAsync(email);
+                var existingUser = await _userManager.FindByEmailAsync(user.Email!);
                 if (existingUser == null) return NotFound();
 
                 existingUser.UserName = user.UserName;
@@ -77,7 +77,7 @@ namespace DatabaseTest.Controllers
         }
 
         [HttpDelete("DeleteUser"), Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteUser(string email)
+        public async Task<IActionResult> DeleteUser([FromQuery] string email)
         {
             try
             {

@@ -7,17 +7,27 @@ const UserProfile = () => {
   const { user, setUser, login, logout } = useContext(UserContext);
 
   return (
-    <div>
+    <div className="profile-container">
       {user ? (
-        <div>
+        <div className="profile-welcome-text">
           <h2>Hello, {user.userName}!</h2>
         </div>
       ):(null)}
       {
         user.userName == "admin" ? (
-        <Link to="/customerlist">
-          <button type="button">Customer list</button>
-        </Link>) : (null)
+          <div className="admin-buttons-container">
+            <Link to="/customerlist">
+              <button type="button" className="admin-button">Customer list</button>
+            </Link>
+            <Link to="/productlist">
+            <button type="button" className="admin-button">Product list</button>
+            </Link>
+            <Link to="/orderlist">
+            <button type="button" className="admin-button">Order list</button>
+            </Link>
+          </div>
+        
+        ) : (null)
       }
     </div>
   );
