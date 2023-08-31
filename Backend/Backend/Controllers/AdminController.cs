@@ -15,9 +15,9 @@ namespace DatabaseTest.Controllers
     {
         private readonly ILogger<UserController> _logger;
         private readonly IUserRepository _userRepository;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<User> _userManager;
 
-        public AdminController(ILogger<UserController> logger, IUserRepository userRepository, UserManager<IdentityUser> userManager)
+        public AdminController(ILogger<UserController> logger, IUserRepository userRepository, UserManager<User> userManager)
         {
             _logger = logger;
             _userRepository = userRepository;
@@ -25,7 +25,7 @@ namespace DatabaseTest.Controllers
         }
 
         [HttpGet("GetUsers"), Authorize(Roles = "Admin")]
-        public async Task<IEnumerable<IdentityUser>> GetUsers()
+        public async Task<IEnumerable<User>> GetUsers()
         {
             try
             {
@@ -40,7 +40,7 @@ namespace DatabaseTest.Controllers
         }
 
         [HttpGet("GetUser"), Authorize(Roles = "Admin")]
-        public async Task<ActionResult<IdentityUser>> GetUser(string email)
+        public async Task<ActionResult<User>> GetUser(string email)
         {
             try
             {
@@ -55,11 +55,11 @@ namespace DatabaseTest.Controllers
         }
 
         [HttpPut("UpdateUser")]
-        public async Task<IActionResult> UpdateUser([FromBody] IdentityUser user)
+        public async Task<IActionResult> UpdateUser(string email, User user)
         {
             try
             {
-                var existingUser = await _userManager.FindByEmailAsync(user.Email!);
+                var existingUser = await _userManager.FindByEmailAsync(email);
                 if (existingUser == null) return NotFound();
 
                 existingUser.UserName = user.UserName;
@@ -77,7 +77,7 @@ namespace DatabaseTest.Controllers
         }
 
         [HttpDelete("DeleteUser"), Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteUser([FromQuery] string email)
+        public async Task<IActionResult> DeleteUser(string email)
         {
             try
             {
@@ -98,6 +98,5 @@ namespace DatabaseTest.Controllers
                 throw;
             }
         }
-
     }
 }

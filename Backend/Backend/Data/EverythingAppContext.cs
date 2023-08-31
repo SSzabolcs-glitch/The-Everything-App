@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System.Reflection.Emit;
 
-public class EverythingAppContext : IdentityDbContext<IdentityUser, IdentityRole, string>
+public class EverythingAppContext : IdentityDbContext<User, IdentityRole, string>
 {
     public DbSet<Address> Addresses { get; init; }
     public DbSet<Product> Products { get; init; }
@@ -70,11 +70,6 @@ public class EverythingAppContext : IdentityDbContext<IdentityUser, IdentityRole
         // Configure relationships for Address entity
         modelBuilder.Entity<Address>()
             .HasKey(a => a.Id);
-
-        modelBuilder.Entity<Address>()
-            .HasOne(a => a.User)
-            .WithMany()
-            .HasForeignKey(a => a.UserId);
 
         // Configure Product
         /*modelBuilder.Entity<Product>()
