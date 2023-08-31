@@ -6,7 +6,7 @@ namespace Backend.Repository
 {
     public interface IUserRepository
     {
-        Task<IEnumerable<IdentityUser>> GetAllAsync();
-        Task<IdentityUser?> GetByEmailAsync(string email);
+        Task<IEnumerable<User>> GetAllAsync();
+        Task<User?> GetByEmailAsync(string email);
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Backend.Models;
 
 namespace Backend.Repository
 {
@@ -13,16 +14,16 @@ namespace Backend.Repository
         {
             _dbContext = dbContext;
         }
-        public async Task<IEnumerable<IdentityUser>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
             return await _dbContext.Users.ToListAsync();
         }
 
-        public async Task<IdentityUser?> GetByEmailAsync(string email)
+        public async Task<User?> GetByEmailAsync(string email)
         {
             return await _dbContext.Users.FirstOrDefaultAsync(c => c.Email == email);
         }
-        public void Delete(IdentityUser user)
+        public void Delete(User user)
         {
             _dbContext.Remove(user);
             _dbContext.SaveChanges();
