@@ -4,7 +4,7 @@ namespace Backend.Models
 {
     public class Order
     {
-        public int Id { get; init; }
+        public int Id { get; set; }
 
         // User Foreign key property
         public string? UserId { get; set; }

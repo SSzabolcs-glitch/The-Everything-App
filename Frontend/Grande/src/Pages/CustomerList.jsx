@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../main.jsx';
 
 function CustomerList() {
   const [customers, setCustomers] = useState([]);
-  const [token, setToken] = useState("");
+  const { user, setUser, login, logout } = useContext(UserContext);
 
   useEffect(() => {
     fetch('https://localhost:7037/api/GetUsers',
@@ -10,10 +12,8 @@ function CustomerList() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer' + token
+        'Authorization': 'Bearer ' + user.token //the space is necessary after "Bearer"
       },
-      credentials: 'include',
-      mode: 'cors', //enable cors
     })
       .then(response => response.json()) // Parse the response as JSON
       .then(data => setCustomers(data)) // Update the state with the parsed data

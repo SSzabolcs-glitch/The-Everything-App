@@ -5,17 +5,13 @@ namespace Backend.Models
 {
     public class Address
     {
-        public int Id { get; init; }
-        public string? Country { get; init; }
-        public string? State { get; init; }
-        public string? PostalCode { get; init; }
-        public string? City { get; init; }
-        public string? Sreet { get; init; }
-        public int HouseNumber { get; init; }
-        public string? Other { get; init; }
-
-        // Foreign key property
-        public string? UserId { get; set; }
-        public IdentityUser? User { get; set; }
+        public int Id { get; set; }
+        public string? Country { get; set; }
+        public string? State { get; set; }
+        public string? PostalCode { get; set; }
+        public string? City { get; set; }
+        public string? Sreet { get; set; }
+        public int HouseNumber { get; set; }
+        public string? Other { get; set; }
     }
 }

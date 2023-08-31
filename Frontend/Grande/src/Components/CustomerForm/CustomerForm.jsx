@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const CustomerForm = ({ onCancel, onSave, disabled, isRegister }) => {
+const CustomerForm = ({ onCancel, onSave, disabled, isRegister, errorMessage }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -17,6 +17,7 @@ const CustomerForm = ({ onCancel, onSave, disabled, isRegister }) => {
     };
 
     return (
+    <>
     <form className="CustomerForm" onSubmit={onSubmit}>
 
         {isRegister&&<div className="control">
@@ -54,6 +55,8 @@ const CustomerForm = ({ onCancel, onSave, disabled, isRegister }) => {
         </button>
         </div>
     </form>
+    {errorMessage && <p className="error-message">{errorMessage}</p>}
+    </>
     );
 };
 
@@ -62,6 +65,7 @@ CustomerForm.propTypes = {
     onSave: PropTypes.func.isRequired,
     disabled: PropTypes.bool.isRequired,
     isRegister: PropTypes.bool,
+    errorMessage: PropTypes.string
   };
 
 export default CustomerForm;
