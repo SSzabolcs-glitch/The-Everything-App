@@ -66,6 +66,6 @@ CustomerForm.propTypes = {
     disabled: PropTypes.bool.isRequired,
     isRegister: PropTypes.bool,
     errorMessage: PropTypes.string
-  };
+};
 
 export default CustomerForm;
