@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Backend.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
@@ -18,7 +19,7 @@ namespace Backend.Services.Authentication
             _issuerSigningKey = issuerSigningKey;
         }
 
-        public string CreateToken(IdentityUser user, IList<string> roles)
+        public string CreateToken(User user, IList<string> roles)
         {
 
             var claims = CreateClaims(user, roles);
@@ -43,7 +44,7 @@ namespace Backend.Services.Authentication
                 signingCredentials: credentials
             );
 
-        private List<Claim> CreateClaims(IdentityUser user, IList<string> roles)
+        private List<Claim> CreateClaims(User user, IList<string> roles)
         {
             try
             {

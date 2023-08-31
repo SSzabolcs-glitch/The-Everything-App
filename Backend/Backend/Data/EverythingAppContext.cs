@@ -28,6 +28,11 @@ public class EverythingAppContext : IdentityDbContext<User, IdentityRole, string
     {
         base.OnModelCreating(modelBuilder);
 
+        // Configurate User
+        modelBuilder.Entity<User>()
+            .Property(e => e.Id)
+            .ValueGeneratedOnAdd();
+
         // Configure relationships for OrderItem entity
         modelBuilder.Entity<OrderItem>()
             .HasKey(oi => oi.Id);

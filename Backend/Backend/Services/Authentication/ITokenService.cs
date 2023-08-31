@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Backend.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Backend.Services.Authentication
 {
     public interface ITokenService
     {
-        public string CreateToken(IdentityUser user, IList<string> roles);
+        public string CreateToken(User user, IList<string> roles);
     }
 }
