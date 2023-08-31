@@ -37,9 +37,9 @@ public class EverythingAppContext : IdentityDbContext<User, IdentityRole, string
             .HasColumnType("decimal(10, 2)");
 
         modelBuilder.Entity<OrderItem>()
-            .HasOne(oi => oi.Product)
-            .WithMany(p => p.OrderItems)
-            .HasForeignKey(oi => oi.ProductId);
+            .HasOne(oi => oi.Product);
+           // .WithMany(p => p.OrderItems)
+            //.HasForeignKey(oi => oi.ProductId);
 
         modelBuilder.Entity<OrderItem>()
             .HasOne(oi => oi.Order)
@@ -72,9 +72,9 @@ public class EverythingAppContext : IdentityDbContext<User, IdentityRole, string
             .HasKey(a => a.Id);
 
         // Configure Product
-        modelBuilder.Entity<Product>()
+        /*modelBuilder.Entity<Product>()
             .Property(p => p.UnitPrice)
-            .HasColumnType("decimal(5, 2)");
+            .HasColumnType("decimal(10, 2)");*/
     }
 
 }
