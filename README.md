@@ -1,6 +1,6 @@
 Welcome To Project [Grande]PH!
 
-This project aims to design and create a webshop.
+This project aims to design and create a webshop. asd
 
 Instuctions to use:
 1. Install npm packages in the "Fronted/Grande" folder using: npm install
