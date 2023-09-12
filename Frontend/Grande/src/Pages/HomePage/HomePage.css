@@ -29,7 +29,7 @@
 }
 
 .main-picture {
-    background-image: url('../../public/images/Main_picture_01.jpg');
+    background-image: url('../../images/Main_picture_01.jpg');
     background-size: contain; /*keeping the image scale*/
     background-repeat: no-repeat;
     background-position: center;
