@@ -7,9 +7,9 @@ import "./LogIn.css";
 
 const loginUser = (user) => {
   console.log(user);
-  const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
-  
-  return fetch(dbConnectionUrl + "/Auth/Login", {
+  const url = import.meta.env.VITE_APP_MY_URL;
+
+  return fetch(url + "/Auth/Login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../main.jsx';
 import CustomerTable from "../Components/CustomerTable/CustomerTable.jsx";
-
+const url = import.meta.env.VITE_APP_MY_URL;
 
 const updateCustomer = (updatedcustomer, email, user) => {
   console.log(email)
   console.log("CUSTOMER UPDATE - PUT")
-  const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 
-  return fetch(dbConnectionUrl + `/api/UpdateUser?email=${encodeURIComponent(email)}`, {
+  return fetch(url + `/api/UpdateUser?email=${encodeURIComponent(email)}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -30,7 +29,7 @@ const deleteCustomer = (email, user) => {
   console.log(email),
   console.log(user.userName, user.token),
   console.log("CUSTOMER DELETE")
-  return fetch(dbConnectionUrl + `/api/DeleteUser?email=${encodeURIComponent(email)}`, {
+  return fetch(url + `/api/DeleteUser?email=${encodeURIComponent(email)}`, {
     method: "DELETE",
       headers: {
       'Authorization': 'Bearer ' + user.token
@@ -43,7 +42,7 @@ function CustomerList() {
   const { user, setUser, login, logout } = useContext(UserContext);
 
   useEffect(() => {
-    fetch(dbConnectionUrl + "/api/GetUsers",
+    fetch(url + "/api/GetUsers",
     {
       method: 'GET',
       headers: {

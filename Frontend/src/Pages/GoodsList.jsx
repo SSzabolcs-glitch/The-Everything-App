@@ -3,10 +3,10 @@ import GoodsTable from "../Components/GoodsTable";
 
 const GoodsList = () => {
   const [goodsList, setGoodsList] = useState(null);
-  const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
+  const url = import.meta.env.VITE_APP_MY_URL;
 
   useEffect(() => {
-    fetch(dbConnectionUrl + "/api/goods")
+    fetch(url + "/api/goods")
       .then((res) => res.json())
       .then((goods) => setGoodsList(goods))
       .catch((error) => {
