@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(EverythingAppContext))]
-    [Migration("20230913092519_initialMigration")]
+    [Migration("20230913094212_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
@@ -127,7 +127,7 @@ namespace Backend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
