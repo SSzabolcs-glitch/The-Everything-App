@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import CustomerForm from "../../Components/CustomerForm/CustomerForm.jsx";
 import "./SignUp.css";
 
-const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
-
 const createCustomer = (customer) => {
   console.log(customer);
+  const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
+
   return fetch(dbConnectionUrl + "/Auth/Register", {
     method: "POST",
     mode: "cors",

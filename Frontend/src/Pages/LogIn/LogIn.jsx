@@ -5,10 +5,10 @@ import CustomerForm from "../../Components/CustomerForm/CustomerForm.jsx";
 import { UserContext } from "../../main";
 import "./LogIn.css";
 
-const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
-
 const loginUser = (user) => {
   console.log(user);
+  const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
+  
   return fetch(dbConnectionUrl + "/Auth/Login", {
     method: "POST",
     headers: {
