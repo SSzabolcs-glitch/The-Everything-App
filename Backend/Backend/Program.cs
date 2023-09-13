@@ -52,7 +52,6 @@ FillProducts();
 
 app.Run();
 
-
 void AddServices()
 {
     builder.Services.AddEndpointsApiExplorer();
@@ -226,3 +225,5 @@ async Task FillProductsIfNotExists()
         await dbContext.SaveChangesAsync();
     }
 }
+
+public partial class Program { }
