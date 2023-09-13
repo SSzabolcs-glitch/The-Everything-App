@@ -1,4 +1,5 @@
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -11,7 +12,9 @@ function HomePage() {
           <div className="main-message-text">
             <div className="main-text-1">Rent or buy anything what you need</div>
             <div className="main-text-2">Quality products for rent and buy, delivery in one day</div>
-            <button className="button-get-started">Get Started</button>
+            <Link to="/products">
+              <button className="button-get-started">Get Started</button>
+            </Link>
           </div>
         </div>
         <div className="main-picture-container">
@@ -54,8 +57,59 @@ function HomePage() {
             </div>
           </div>
         </div>
-
       </div>
+
+
+      <div className="discover-categories-content">
+        <div className="discover-categories-text">Discover our categories</div>
+        <div className="discover-categories-container">
+
+          <div className="discover-categories-picture-and-text-container-1">
+            <div className="discover-categories-picture-1"></div>
+            <div className="discover-categories-text-1">category-1</div>
+          </div>
+          <div className="discover-categories-picture-and-text-container-2">
+            <div className="discover-categories-picture-2"></div>
+            <div className="discover-categories-text-2">category-2</div>
+          </div>
+          <div className="discover-categories-picture-and-text-container-3">
+            <div className="discover-categories-picture-3"></div>
+            <div className="discover-categories-text-3">category-3</div>
+          </div>
+          <div className="discover-categories-picture-and-text-container-4">
+            <div className="discover-categories-picture-4"></div>
+            <div className="discover-categories-text-4">category-4</div>
+          </div>
+          <div className="discover-categories-picture-and-text-container-5">
+            <div className="discover-categories-picture-5"></div>
+            <div className="discover-categories-text-5">category-5</div>
+          </div>
+        </div>
+        <div className="discover-categories-container">
+        <div className="discover-categories-picture-and-text-container-6">
+            <div className="discover-categories-picture-6"></div>
+            <div className="discover-categories-text-6">category-6</div>
+          </div>
+          <div className="discover-categories-picture-and-text-container-7">
+            <div className="discover-categories-picture-7"></div>
+            <div className="discover-categories-text-7">category-7</div>
+          </div>
+          <div className="discover-categories-picture-and-text-container-8">
+            <div className="discover-categories-picture-8"></div>
+            <div className="discover-categories-text-8">category-8</div>
+          </div>
+          <div className="discover-categories-picture-and-text-container-9">
+            <div className="discover-categories-picture-9"></div>
+            <div className="discover-categories-text-9">category-9</div>
+          </div>
+          <div className="discover-categories-picture-and-text-container-10">
+            <div className="discover-categories-picture-10"></div>
+            <div className="discover-categories-text-10">category-10</div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
     );
 }
