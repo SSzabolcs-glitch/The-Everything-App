@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import GoodsTable from "../Components/GoodsTable";
+require('dotenv').config();
+
+const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 
 const GoodsList = () => {
   const [goodsList, setGoodsList] = useState(null);
 
   useEffect(() => {
-    fetch("https://webapp-230912181654.azurewebsites.net/api/goods")
+    fetch(dbConnectionUrl + "/api/goods")
       .then((res) => res.json())
       .then((goods) => setGoodsList(goods))
       .catch((error) => {
