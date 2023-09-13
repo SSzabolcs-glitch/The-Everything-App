@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import GoodsTable from "../Components/GoodsTable";
-require('dotenv').config();
 
 const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 
