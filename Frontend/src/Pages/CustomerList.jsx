@@ -3,11 +3,12 @@ import { useContext } from 'react';
 import { UserContext } from '../main.jsx';
 import CustomerTable from "../Components/CustomerTable/CustomerTable.jsx";
 
-const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 
 const updateCustomer = (updatedcustomer, email, user) => {
   console.log(email)
   console.log("CUSTOMER UPDATE - PUT")
+  const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
+
   return fetch(dbConnectionUrl + `/api/UpdateUser?email=${encodeURIComponent(email)}`, {
     method: "PUT",
     headers: {

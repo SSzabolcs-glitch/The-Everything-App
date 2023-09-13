@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import GoodsTable from "../Components/GoodsTable";
 
-const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
-
 const GoodsList = () => {
   const [goodsList, setGoodsList] = useState(null);
+  const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 
   useEffect(() => {
     fetch(dbConnectionUrl + "/api/goods")
