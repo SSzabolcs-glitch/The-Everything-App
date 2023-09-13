@@ -28,7 +28,7 @@ const deleteCustomer = (email, user) => {
   console.log(email),
   console.log(user.userName, user.token),
   console.log("CUSTOMER DELETE")
-  return fetch(`https://localhost:7037/api/DeleteUser?email=${encodeURIComponent(email)}`, {
+  return fetch(`https://webapp-230912181654.azurewebsites.net/api/DeleteUser?email=${encodeURIComponent(email)}`, {
     method: "DELETE",
       headers: {
       'Authorization': 'Bearer ' + user.token
@@ -41,7 +41,7 @@ function CustomerList() {
   const { user, setUser, login, logout } = useContext(UserContext);
 
   useEffect(() => {
-    fetch("https://localhost:7037/api/GetUsers",
+    fetch("https://webapp-230912181654.azurewebsites.net/api/GetUsers",
     {
       method: 'GET',
       headers: {
