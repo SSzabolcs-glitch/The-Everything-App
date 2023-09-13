@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import CustomerForm from "../../Components/CustomerForm/CustomerForm.jsx";
 import { UserContext } from "../../main";
 import "./LogIn.css";
+require('dotenv').config();
+
+const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 
 const loginUser = (user) => {
   console.log(user);
-  return fetch("https://webapp-230912181654.azurewebsites.net/Auth/Login", {
+  return fetch(dbConnectionUrl + "/Auth/Login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

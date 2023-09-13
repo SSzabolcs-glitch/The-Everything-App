@@ -3,10 +3,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomerForm from "../../Components/CustomerForm/CustomerForm.jsx";
 import "./SignUp.css";
+require('dotenv').config();
+
+const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 
 const createCustomer = (customer) => {
   console.log(customer);
-  return fetch("https://webapp-230912181654.azurewebsites.net/Auth/Register", {
+  return fetch(dbConnectionUrl + "/Auth/Register", {
     method: "POST",
     mode: "cors",
     headers: {

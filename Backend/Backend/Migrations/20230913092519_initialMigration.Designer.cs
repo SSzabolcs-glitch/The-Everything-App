@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(EverythingAppContext))]
-    [Migration("20230831220247_initialMigration")]
+    [Migration("20230913092519_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
@@ -123,6 +123,12 @@ namespace Backend.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
