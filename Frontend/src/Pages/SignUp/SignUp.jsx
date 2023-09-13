@@ -6,16 +6,16 @@ import "./SignUp.css";
 
 const createCustomer = (customer) => {
   console.log(customer);
-  const url = import.meta.env.VITE_APP_MY_URL;
+  const url = process.env.VITE_APP_MY_URL;
 
-  return fetch(url + "/Auth/Register", {
+  return fetch(`${url}/Auth/Register`, {
     method: "POST",
     mode: "cors",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(customer),
-  }).then((res) => res.json());
+  })//.then((res) => res.json());
 };
 
 const SignUp = () => {

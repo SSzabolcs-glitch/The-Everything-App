@@ -7,9 +7,9 @@ import "./LogIn.css";
 
 const loginUser = (user) => {
   console.log(user);
-  const url = import.meta.env.VITE_APP_MY_URL;
+  const url = process.env.VITE_APP_MY_URL;
 
-  return fetch(url + "/Auth/Login", {
+  return fetch(`${url}/Auth/Login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
