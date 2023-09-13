@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../main.jsx';
 import CustomerTable from "../Components/CustomerTable/CustomerTable.jsx";
-require('dotenv').config();
 
 const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomerForm from "../../Components/CustomerForm/CustomerForm.jsx";
 import "./SignUp.css";
-require('dotenv').config();
 
 const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
 
