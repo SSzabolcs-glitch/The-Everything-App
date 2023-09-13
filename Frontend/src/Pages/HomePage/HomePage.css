@@ -12,11 +12,33 @@
     padding-top: 80px;
     color: rgba(55, 63, 65, 1);
     height: 600px;
+    width: 100%;
 }
 
-.main-text {
+.main-message-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 140px;
+    padding-top: 80px;
+    color: rgba(55, 63, 65, 1);
+    height: 600px;
+    width: 100%;
+}
+
+.main-message-elements{
+
+}
+
+.main-message-text{
+    margin-left: 0px;
+    
+}
+
+.main-text-1 {
     font-size: 60px;
-    width: 40vw;
+    width: 30vw;
     font-weight: 400;
     line-height: 1.2; /*space between lines*/
 }
@@ -34,7 +56,8 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 44%;
-    height: 400px;
+    height: 100%;
+    margin-right: 0px;
 }
 
 .button-get-started {
