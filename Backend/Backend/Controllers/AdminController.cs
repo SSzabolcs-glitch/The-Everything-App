@@ -55,11 +55,11 @@ namespace DatabaseTest.Controllers
         }
 
         [HttpPut("UpdateUser")]
-        public async Task<IActionResult> UpdateUser(string email, User user)
+        public async Task<IActionResult> UpdateUser([FromBody] User user)
         {
             try
             {
-                var existingUser = await _userManager.FindByEmailAsync(email);
+                var existingUser = await _userManager.FindByEmailAsync(user.Email!);
                 if (existingUser == null) return NotFound();
 
                 existingUser.UserName = user.UserName;

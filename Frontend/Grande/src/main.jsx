@@ -10,6 +10,7 @@ import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
 import LogIn from './Pages/LogIn';
 import UserProfile from './Pages/UserProfile';
+import AboutUsPage from './Pages/AboutUsPage';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <UserProfile />,
+      },
+      {
+        path: "/about_us",
+        element: <AboutUsPage />,
       },
     ],
   },
