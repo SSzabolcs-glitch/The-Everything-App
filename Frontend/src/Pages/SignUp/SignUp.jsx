@@ -6,9 +6,9 @@ import "./SignUp.css";
 
 const createCustomer = (customer) => {
   console.log(customer);
-  const dbConnectionUrl = process.env.REACT_APP_DB_CONNECTION_URL;
+  const url = import.meta.env.VITE_APP_MY_URL;
 
-  return fetch(dbConnectionUrl + "/Auth/Register", {
+  return fetch(url + "/Auth/Register", {
     method: "POST",
     mode: "cors",
     headers: {
