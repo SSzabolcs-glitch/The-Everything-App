@@ -3,10 +3,10 @@ import GoodsTable from "../Components/GoodsTable";
 
 const GoodsList = () => {
   const [goodsList, setGoodsList] = useState(null);
-  const url = import.meta.env.VITE_APP_MY_URL;
+  const url = process.env.VITE_APP_MY_URL;
 
   useEffect(() => {
-    fetch(url + "/api/goods")
+    fetch(`${url}/api/goods`)
       .then((res) => res.json())
       .then((goods) => setGoodsList(goods))
       .catch((error) => {
