@@ -7,7 +7,7 @@ import "./LogIn.css";
 
 const loginUser = (user) => {
   console.log(user);
-  return fetch("https://localhost:7037/Auth/Login", {
+  return fetch("https://webapp-230912181654.azurewebsites.net/Auth/Login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

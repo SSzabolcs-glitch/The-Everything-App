@@ -6,7 +6,7 @@ import "./SignUp.css";
 
 const createCustomer = (customer) => {
   console.log(customer);
-  return fetch("https://localhost:7037/Auth/Register", {
+  return fetch("https://webapp-230912181654.azurewebsites.net/Auth/Register", {
     method: "POST",
     mode: "cors",
     headers: {
