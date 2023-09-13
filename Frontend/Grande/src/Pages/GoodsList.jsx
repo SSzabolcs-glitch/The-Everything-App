@@ -5,7 +5,7 @@ const GoodsList = () => {
   const [goodsList, setGoodsList] = useState(null);
 
   useEffect(() => {
-    fetch("https://localhost:7037/api/goods")
+    fetch("https://webapp-230912181654.azurewebsites.net/api/goods")
       .then((res) => res.json())
       .then((goods) => setGoodsList(goods))
       .catch((error) => {
