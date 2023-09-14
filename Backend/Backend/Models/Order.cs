@@ -8,10 +8,10 @@ namespace Backend.Models
 
         // User Foreign key property
         public string? UserId { get; set; }
-        public IdentityUser? User { get; set; }
-        public int TotalPrice { get; init; }
+        public User? User { get; set; }
+        public decimal? TotalPrice { get; set; }
 
-
+        
         // Address Foreign key properties
         public int ShippingAddressId { get; set; }
         public int BillingAddressId { get; set; }
