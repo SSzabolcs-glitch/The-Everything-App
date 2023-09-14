@@ -24,8 +24,9 @@ namespace EverythingAppIntegrationTests
         {
             //Arrange
 
-            // Specify the correct path to the appsettings.test.json file
-            var configPath = "C:\\Users\\Lenovo\\OneDrive\\Dokumentumok\\CodeCool\\The-Everything-App\\Backend\\EverythingAppIntegrationTests\\appsettings.test.json";
+            // Specify the path to the appsettings.test.json file
+            var currentDirectory = Directory.GetCurrentDirectory();
+            var configPath = Path.Combine(currentDirectory, "appsettings.test.json");
 
             var webHostBuilder = new WebApplicationFactory<Program>()
                 .WithWebHostBuilder(builder =>
