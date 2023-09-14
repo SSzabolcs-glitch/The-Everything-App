@@ -59,7 +59,6 @@ function HomePage() {
         </div>
       </div>
 
-
       <div className="discover-categories-content">
         <div className="discover-categories-text">Discover our categories</div>
         <div className="discover-categories-container">
@@ -138,6 +137,41 @@ function HomePage() {
         </div>
       </div>
 
+      <div className="footer-menu-content">
+        <div className="footer-menu-container">
+
+          <div className="footer-menu-text-container-1">
+            <div className="footer-menu-text-1-1"><b>Products</b></div>
+            <div className="footer-menu-text-1-2">Rent</div>
+            <div className="footer-menu-text-1-3">Buy</div>
+            <div className="footer-menu-text-1-4">Catalog</div>
+          </div>
+          <div className="footer-menu-text-container-2">
+            <div className="footer-menu-text-2-1"><b>Support</b></div>
+            <div className="footer-menu-text-2-2">Contact Us</div>
+            <div className="footer-menu-text-2-3">Find a location</div>
+          </div>
+          <div className="footer-menu-text-container-3">
+            <div className="footer-menu-text-3-1"><b>About Us</b></div>
+            <div className="footer-menu-text-3-2">History</div>
+            <div className="footer-menu-text-3-3">Organization</div>
+            <div className="footer-menu-text-3-4">Contact</div>
+          </div>
+          <div className="footer-menu-text-container-4">
+            <div className="footer-menu-text-4-1"><b>Sustainability</b></div>
+            <div className="footer-menu-text-4-2">Code of Conduct</div>
+            <div className="footer-menu-text-4-3">International Guides</div>
+          </div>
+          <div className="footer-menu-text-container-5">
+            <div className="footer-menu-text-5-1"><b>Career</b></div>
+            <div className="footer-menu-text-5-2">Jobs</div>
+            <div className="footer-menu-text-5-3">Your Development</div>
+            <div className="footer-menu-text-5-4">Meet our People</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="dark-blue-bar">© The Everything. All rights reserved.</div>
 
     </div>
     );
