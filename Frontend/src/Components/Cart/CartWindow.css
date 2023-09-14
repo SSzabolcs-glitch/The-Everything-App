@@ -4,11 +4,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px;
+    height: 400px;
     background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow for a floating effect */
     padding: 10px;
     z-index: 999; /* Ensure the cart appears above other content */
     display: none;
+    overflow: auto;
   }
   
   .cart-header {
