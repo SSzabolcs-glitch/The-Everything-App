@@ -21,7 +21,7 @@
     text-align: center;
 }
 
-.content-container {
+.delivery-page-content-container {
     justify-content: center;
     align-items: center;
     display: flex; /*flexbox arrangement*/
@@ -29,7 +29,7 @@
     margin-top: 20px;
 }
 
-.picture-container {
+.delivery-page-picture-container {
     background-image: url('../../images/abstract-wave-element-01.png');
     background-size: cover;
     background-repeat: no-repeat;

@@ -7,8 +7,8 @@ function DeliveryPage() {
     <div className="main-message">
       <div className="title-text">Delivery information</div>
 
-      <div className="content-container">
-          <div className="picture-container">
+      <div className="delivery-page-content-container">
+          <div className="delivery-page-picture-container">
               <div className="picture-10"></div>
           </div>
           <div className="main-text-2">
