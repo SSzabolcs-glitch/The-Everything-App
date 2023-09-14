@@ -1,0 +1,105 @@
+.customer-list-table {
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    width: fit-content;
+    padding: 20px;
+    text-align: left;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+}
+
+.customer-list-table-data {
+    background-color: rgb(218, 218, 218);
+    border-radius: 16px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    color: rgb(26, 43, 66);
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.customer-list-title {
+    color: white;
+    font-size: 40px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.titleAndDate {
+    position: relative;
+    background-color: #242424;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.th-username {
+    width: 220px;
+    text-align: left;
+}
+
+.customer-username {
+    width: 200px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.th-id {
+    width: 400px;
+    text-align: left;
+}
+
+.customer-id {
+    width: 400px;
+    text-align: left;
+    color: rgb(26, 43, 66);
+    font-size: 18px;
+}
+
+.th-email {
+    width: 250px;
+    text-align: left;
+}
+
+.customer-email {
+    width: 350px;
+    text-align: left;
+    color: rgb(26, 43, 66);
+    font-size: 18px;
+}
+
+.update-user {
+    margin: 5px;
+    color: #fff;
+    background-color: rgb(26, 43, 66);
+    border-radius: 50px;
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.delete-user {
+    margin: 5px;
+    color: #fff;
+    background-color: #8d2121;
+    border-radius: 50px;
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.update-delete-buttons{
+    margin-left: auto;
+}

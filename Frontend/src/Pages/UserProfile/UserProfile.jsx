@@ -5,7 +5,7 @@ import "./UserProfile.css"; //default import
 
 const UserProfile = () => {
   const { user, setUser, login, logout } = useContext(UserContext);
-
+  
   return (
     <div className="profile-container">
       {user ? (

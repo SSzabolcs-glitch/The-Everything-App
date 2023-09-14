@@ -16,11 +16,15 @@ namespace Backend.Repository
             var users = await _dbContext.Products.ToListAsync();
             return users;
         }
+        public Product GetByName(string productName)
+        {
+            return _dbContext.Products.FirstOrDefault(p => p.ProductName == productName);
+        }
 
         public async Task<IEnumerable<Product?>> GetByNameAsync(string productName)
         {
-            var userByName = await _dbContext.Products.Where(c => c.ProductName == productName).ToListAsync();
-            return userByName;
+            var productByName = await _dbContext.Products.Where(c => c.ProductName == productName).ToListAsync();
+            return productByName;
         }
         public async Task<Product> AddAsync(Product product)
         {
