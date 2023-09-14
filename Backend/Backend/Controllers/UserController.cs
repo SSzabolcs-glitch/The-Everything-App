@@ -12,10 +12,10 @@ namespace DatabaseTest.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<User> _userManager;
         private readonly IOrderRepository _orderRepository;
 
-        public UserController(IOrderRepository orderRepository, UserManager<IdentityUser> userManager)
+        public UserController(IOrderRepository orderRepository, UserManager<User> userManager)
         {
             _orderRepository = orderRepository;
             _userManager = userManager;
