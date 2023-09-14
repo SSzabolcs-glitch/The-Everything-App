@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Layout from "./Pages/Layout";
 import './index.css'
-import GoodsList from './Pages/GoodsList'
+import ProductList from './Pages/ProductList'
 import CustomerList from './Pages/CustomerList'
 import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
         element: <CustomerList />,
       },
       {
-        path: "/goodslist",
-        element: <GoodsList />,
+        path: "/productlist",
+        element: <ProductList />,
       },
       {
         path: "/profile",
