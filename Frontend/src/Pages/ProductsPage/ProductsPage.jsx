@@ -1,13 +1,13 @@
+import React from 'react';
 import "./ProductsPage.css";
-
+import ProductList from '../../Components/ProductCard/ProductList';
 function ProductsPage() {
-  return (
-    <div>
-      <div className="products-main-text">here comes our lovely products:)</div>
-    </div>
+    return(
+        <div>
+        <h1>Product List</h1>
+        <ProductList/>
+        </div>
     );
 }
-
-
 
 export default ProductsPage;
