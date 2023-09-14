@@ -1,0 +1,76 @@
+.white-bar {
+    width: 100vw;
+    height: 30px;
+    background-color: white;
+}
+
+.main-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 140px;
+    padding-top: 80px;
+    color: rgba(55, 63, 65, 1);
+}
+
+.title-text {
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 1.2; /*space between lines*/
+    text-align: center;
+}
+
+.delivery-page-content-container {
+    justify-content: center;
+    align-items: center;
+    display: flex; /*flexbox arrangement*/
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.delivery-page-picture-container {
+    background-image: url('../../images/abstract-wave-element-01.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture-10 {
+    background-image: url('../../images/picture_10.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60%;
+    height: 80%;
+    border-radius: 10px;
+}
+
+.main-text-2 {
+    width: 100%;
+    text-align: justify; /* Sorkizárt szöveg */
+}
+
+.paragraph-1 {
+    margin-bottom: 50px; /* Térköz a bekezdések között */
+}
+
+.delivery-comapnies-pricing-text{
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2; /*space between lines*/
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.thankyou-text{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    font-size: 30px;
+}

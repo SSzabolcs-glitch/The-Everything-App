@@ -4,13 +4,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Layout from "./Pages/Layout";
 import './index.css'
-import GoodsList from './Pages/GoodsList'
+import ProductList from './Pages/ProductList'
 import CustomerList from './Pages/CustomerList'
 import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
 import LogIn from './Pages/LogIn';
 import UserProfile from './Pages/UserProfile';
 import AboutUsPage from './Pages/AboutUsPage';
+import ProductsPage from './Pages/ProductsPage';
+import FeedbacksPage from './Pages/FeedbacksPage';
+import DeliveryPage from './Pages/DeliveryPage';
 
 const router = createBrowserRouter([
   {
@@ -35,8 +38,8 @@ const router = createBrowserRouter([
         element: <CustomerList />,
       },
       {
-        path: "/goodslist",
-        element: <GoodsList />,
+        path: "/productlist",
+        element: <ProductList />,
       },
       {
         path: "/profile",
@@ -46,6 +49,19 @@ const router = createBrowserRouter([
         path: "/about_us",
         element: <AboutUsPage />,
       },
+      {
+        path: "/products",
+        element: <ProductsPage />,
+      },
+      {
+        path: "/feedbacks",
+        element: <FeedbacksPage />,
+      },
+            {
+        path: "/delivery",
+        element: <DeliveryPage />,
+      },
+      
     ],
   },
 ]);
