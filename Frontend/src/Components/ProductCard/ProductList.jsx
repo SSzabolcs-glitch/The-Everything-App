@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import Cart from '../Cart/Cart';
 import CartWindow from '../Cart/CartWindow';
+import './ProductList.css';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -53,7 +54,20 @@ const ProductList = () => {
   };
   console.log(cart);
   return (
-    <div>
+    <div className='cart-and-product-list'>
+
+      <div className="product-list-container">
+       
+       {products.map((product) => (
+         <ProductCard
+           key={product.id}
+           product={product}
+           addToCart={addToCart}
+         />
+       ))}
+     </div>
+
+      <div className='cart-container'>
        <button className="cart-toggle-button" onClick={toggleCart}>
           {isCartOpen ? 'Close Cart' : 'Open Cart'}
         </button>
@@ -64,16 +78,10 @@ const ProductList = () => {
         removeFromCart={removeFromCart}
         placeOrder={placeOrder}
       />
-      <div className="product-list">
-       
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            addToCart={addToCart}
-          />
-        ))}
       </div>
+
+
+
     </div>
 
   );
