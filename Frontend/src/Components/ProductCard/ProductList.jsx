@@ -15,7 +15,7 @@ const ProductList = () => {
 
   const placeOrder = (orderItem) => {
    console.log(orderItem);
-    fetch('YOUR_ORDER_API_ENDPOINT', {
+    fetch('https://webapp-230912181654.azurewebsites.net/api/orders/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
