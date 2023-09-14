@@ -123,16 +123,19 @@ function HomePage() {
 
           <div className="one-day-delivery-text-container-3">
             <div className="one-day-delivery-text-3">
-              In today&apos;s fast-paced world, time is a precious commodity, and we understand that when you&apos;re
-              embarking on a DIY project or home renovation, waiting for tools to arrive can be a frustrating
-              experience. That&apos;s precisely why we&apos;ve implemented our lightning-fast one-day order delivery
-              service, designed with your convenience in mind.
-              When you choose The Everything for your tool needs, you gain a significant advantage in terms
-              of project planning and execution. Imagine waking up with the inspiration and motivation to
-              tackle a home improvement project or DIY task, and by the end of the day, you have all the
-              necessary tools at your doorstep. This rapid turnaround time eliminates the waiting game,
-              allowing you to dive into your project without unnecessary delays.
+            In today&apos;s fast-paced world, time is precious. We know that when starting a DIY project
+            or home renovation, waiting for tools can be frustrating. That&apos;s why we offer lightning-fast
+            one-day delivery. Picture waking up ready to tackle a project, and by day&apos;s end, your tools
+            are at your doorstep. This eliminates waiting, letting you dive into your project sooner.
+            With The Everything, your DIY dreams become a reality, swiftly and conveniently.
             </div>
+
+            <div className="button-learn-more-container">
+              <Link to="/delivery">
+                <button className="button-learn-more">Learn more</button>
+              </Link>
+            </div>
+
           </div>
         </div>
       </div>

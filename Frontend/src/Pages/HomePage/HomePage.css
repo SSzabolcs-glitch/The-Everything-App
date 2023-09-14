@@ -398,6 +398,15 @@
     text-align: justify;
 }
 
+.button-learn-more-container{
+    height: 96px;
+}
+
+.button-learn-more{
+    margin-top: 44px;
+    margin-left: 294px;
+}
+
 
 .footer-menu-content {
     margin: auto;
