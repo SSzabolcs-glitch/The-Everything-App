@@ -8,10 +8,8 @@
     display: flex; /*flexbox arrangement*/
     justify-content: space-between; /*distribution of space between elements*/
     margin: 0;
-    padding: 140px;
-    padding-top: 80px;
     color: rgba(55, 63, 65, 1);
-    height: 600px;
+    height: 550px;
     width: 100%;
 }
 
@@ -21,7 +19,7 @@
     align-items: center;
     margin: 0;
     padding: 140px;
-    padding-top: 40px;
+    padding-top: 20px;
     color: rgba(55, 63, 65, 1);
     height: 600px;
     width: 100%;
@@ -165,7 +163,6 @@
     margin: auto;
     width: 100%;
     background-color: rgb(255, 255, 255);
-    
 }
 
 .discover-categories-text {
@@ -326,4 +323,79 @@
     color: rgba(55, 63, 65, 1);
     font-weight: 700;
     font-size: 20px
+}
+
+
+
+
+.one-day-delivery-content {
+    margin: auto;
+    width: 100%;
+    background-color: rgb(28, 46, 73);
+    
+}
+
+.one-day-delivery-text {
+    margin: auto;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 40px;
+    padding-top: 40px;
+}
+
+.one-day-delivery-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 80px;
+    width: 100%;
+    height: 350px;
+    background-color: rgb(28, 46, 73);
+}
+
+.one-day-delivery-picture-container-1,
+.one-day-delivery-picture-container-2,
+.one-day-delivery-text-container-3{
+    margin: auto;
+    width: 450px;
+    height: 350px;
+    background-color: rgb(28, 46, 73);
+}
+
+.one-day-delivery-picture-1,
+.one-day-delivery-picture-2{
+    margin-top: 20px;
+}
+
+.one-day-delivery-picture-1{
+    background-image: url('../../images/picture_08.jpg');
+    background-size: cover; /*keeping the image scale*/
+    background-repeat: no-repeat;
+    background-position:top;
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.one-day-delivery-picture-2{
+    background-image: url('../../images/picture_09.jpg');
+    background-size: cover; /*keeping the image scale*/
+    background-repeat: no-repeat;
+    background-position: top;
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.one-day-delivery-text-3{
+    margin-bottom: 20px;
+    margin-top: -7px;
+    background-color: rgb(28, 46, 73);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    text-align: justify;
 }

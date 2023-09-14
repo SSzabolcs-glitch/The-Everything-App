@@ -109,6 +109,35 @@ function HomePage() {
         </div>
       </div>
 
+      <div className="white-bar"></div>
+      <div className="one-day-delivery-content">
+        <div className="one-day-delivery-text">Delivery in one day</div>
+        <div className="one-day-delivery-container">
+
+          <div className="one-day-delivery-picture-container-1">
+            <div className="one-day-delivery-picture-1"></div>
+          </div>
+
+          <div className="one-day-delivery-picture-container-2">
+            <div className="one-day-delivery-picture-2"></div>
+          </div>
+
+          <div className="one-day-delivery-text-container-3">
+            <div className="one-day-delivery-text-3">
+              In today&apos;s fast-paced world, time is a precious commodity, and we understand that when you&apos;re
+              embarking on a DIY project or home renovation, waiting for tools to arrive can be a frustrating
+              experience. That&apos;s precisely why we&apos;ve implemented our lightning-fast one-day order delivery
+              service, designed with your convenience in mind.
+              When you choose The Everything for your tool needs, you gain a significant advantage in terms
+              of project planning and execution. Imagine waking up with the inspiration and motivation to
+              tackle a home improvement project or DIY task, and by the end of the day, you have all the
+              necessary tools at your doorstep. This rapid turnaround time eliminates the waiting game,
+              allowing you to dive into your project without unnecessary delays.
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     </div>
     );
