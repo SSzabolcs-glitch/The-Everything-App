@@ -8,6 +8,7 @@ namespace Backend.Repository
     public class OrderRepository : IOrderRepository
     {
         private readonly EverythingAppContext _dbContext;
+       
 
         public OrderRepository(EverythingAppContext dbContext)
         {
@@ -43,7 +44,7 @@ namespace Backend.Repository
             var orders = await _dbContext.Orders
                 .Where(o => o.UserId == userId)
                 .Include(o => o.User)  // Include the related user data
-                .Include(o => o.Address)  // Include the related address data
+                .Include(o => o.BillingAddress)  // Include the related address data
                 .ToListAsync();
 
             return orders;

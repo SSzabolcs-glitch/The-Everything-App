@@ -13,6 +13,8 @@ namespace Backend.Models
         public decimal UnitPrice { get; set; }
         [Range(1, 9999999999, ErrorMessage = "Quantity must be between 1 and 9999999999")]
         public int Quantity { get; set; }
+        public string? ImageUrl { get; set; }
+        public string? Description { get; set; }
 
         // Navigation property
         //public List<OrderItem>? OrderItems { get; set; }
