@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace EverythingAppIntegrationTests
 {
-    public class BasicTests
+    public class GetEndpointTests
     {
         private WebApplicationFactory<Program> _factory;
         private HttpClient _client;
