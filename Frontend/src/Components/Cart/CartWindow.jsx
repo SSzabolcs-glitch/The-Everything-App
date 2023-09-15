@@ -8,7 +8,6 @@ const CartWindow = ({ isOpen, closeCart, cartItems, removeFromCart, placeOrder  
   const handlePlaceOrder = () => {
   
     const orderItem = {
-      id: new Date().getTime(), 
       address,
       items: cartItems,
     };
