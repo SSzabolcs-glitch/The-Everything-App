@@ -1,0 +1,26 @@
+.cart-and-product-list{
+    display: flex;
+    align-items: flex-start;
+}
+
+.cart-container {
+    width: 30%;
+    margin: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-toggle-button {
+    margin: 10px 0;
+  }
+
+.product-list-container {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px; 
+    padding: 0px;
+  }
