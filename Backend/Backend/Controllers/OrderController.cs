@@ -40,7 +40,7 @@ public class OrderController : ControllerBase
                 // User = user,
                 ShippingAddressId = 1,
                 BillingAddressId = 1,
-                TotalPrice = orderInput.Items.Sum(item => item.UnitPrice * item.Quantity)
+                TotalPrice = (int)orderInput.Items.Sum(item => item.UnitPrice * item.Quantity)
             };
 
             // Add the order to the database context and save changes
