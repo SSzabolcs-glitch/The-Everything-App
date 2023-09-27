@@ -1,4 +1,4 @@
-.customer-list-table {
+.order-list-table {
     position: relative;
     margin: auto;
     margin-top: 50px;
@@ -9,7 +9,7 @@
     border-radius: 16px;
 }
 
-.customer-list-table-data {
+.order-list-table-data {
     background-color: rgb(218, 218, 218);
     border-radius: 16px;
 }
@@ -26,8 +26,8 @@ th {
     
 }
 
-.customer-list-title {
-    color:rgb(26, 43, 66);
+.order-list-title {
+    color: rgb(26, 43, 66);
     font-size: 40px;
     margin: auto;
     margin-top: 30px;
@@ -35,45 +35,49 @@ th {
     font-weight: 600;
 }
 
-.titleAndDate {
-    position: relative;
-    background-color: #242424;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-}
-
-
-.th-username {
-    width: 220px;
+.th-order-id {
+    width: 100px;
     text-align: left;
 }
 
-.customer-username {
-    width: 200px;
-    text-align: left;
-    font-size: 18px;
-}
-
-.th-id {
-    width: 400px;
-    text-align: left;
-}
-
-.customer-id {
-    width: 400px;
+.order-id {
+    width: 100px;
     text-align: left;
     color: rgb(26, 43, 66);
     font-size: 18px;
 }
 
-.th-email {
-    width: 250px;
+.th-order-user-id {
+    width: 100px;
     text-align: left;
 }
 
-.customer-email {
-    width: 350px;
+.order-user-id {
+    width: 100px;
+    text-align: left;
+    color: rgb(26, 43, 66);
+    font-size: 18px;
+}
+
+.th-order-total-price {
+    width: 130px;
+    text-align: left;
+}
+
+.order-total-price {
+    width: 130px;
+    text-align: left;
+    color: rgb(26, 43, 66);
+    font-size: 18px;
+}
+
+.th-order-shipping-address-id{
+    width: 200px;
+    text-align: left;
+}
+
+.order-shipping-address-id{
+    width: 200px;
     text-align: left;
     color: rgb(26, 43, 66);
     font-size: 18px;

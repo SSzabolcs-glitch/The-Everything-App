@@ -16,12 +16,15 @@ namespace DatabaseTest.Controllers
         private readonly ILogger<UserController> _logger;
         private readonly IUserRepository _userRepository;
         private readonly UserManager<User> _userManager;
+        
+        private readonly IOrderRepository _orderRepository;
 
-        public AdminController(ILogger<UserController> logger, IUserRepository userRepository, UserManager<User> userManager)
+        public AdminController(ILogger<UserController> logger, IUserRepository userRepository, UserManager<User> userManager, IOrderRepository orderRepository)
         {
             _logger = logger;
             _userRepository = userRepository;
             _userManager = userManager;
+            _orderRepository = orderRepository;
         }
 
         [HttpGet("GetUsers"), Authorize(Roles = "Admin")]
@@ -95,6 +98,21 @@ namespace DatabaseTest.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error getting User.");
+                throw;
+            }
+        }
+        
+        [HttpGet("GetOrders"), Authorize(Roles = "Admin")]
+        public async Task<IEnumerable<Order>> GetOrders()
+        {
+            try
+            {
+                var orders = _orderRepository.GetAll();
+                return orders;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting Orders.");
                 throw;
             }
         }

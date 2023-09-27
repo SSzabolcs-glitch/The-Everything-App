@@ -6,6 +6,7 @@ import Layout from "./Pages/Layout";
 import './index.css'
 import ProductList from './Pages/ProductList'
 import CustomerList from './Pages/CustomerList'
+import OrderList from './Pages/OrderList'
 import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
 import LogIn from './Pages/LogIn';
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/productlist",
         element: <ProductList />,
+      },
+      {
+        path: "/orderlist",
+        element: <OrderList />,
       },
       {
         path: "/profile",
