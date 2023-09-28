@@ -16,9 +16,10 @@ namespace Backend.Repository
             var users = await _dbContext.Products.ToListAsync();
             return users;
         }
-        public Product GetByName(string productName)
+        public async Task<Product> GetByIdAsync(int id)
         {
-            return _dbContext.Products.FirstOrDefault(p => p.ProductName == productName);
+            var productById = await _dbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
+            return productById!;
         }
 
         public async Task<IEnumerable<Product?>> GetByNameAsync(string productName)
@@ -54,6 +55,8 @@ namespace Backend.Repository
             productToUpdate.ProductName = product.ProductName;
             productToUpdate.UnitPrice = product.UnitPrice;
             productToUpdate.Quantity = product.Quantity;
+            productToUpdate.Description = product.Description;
+
             await _dbContext.SaveChangesAsync();
 
             return productToUpdate;

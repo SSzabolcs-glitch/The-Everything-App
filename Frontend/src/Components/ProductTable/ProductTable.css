@@ -1,4 +1,4 @@
-.customer-list-table {
+.product-list-table {
     position: relative;
     margin: auto;
     margin-top: 50px;
@@ -9,7 +9,7 @@
     border-radius: 16px;
 }
 
-.customer-list-table-data {
+.product-list-table-data {
     background-color: rgb(218, 218, 218);
     border-radius: 16px;
 }
@@ -26,7 +26,7 @@ th {
     
 }
 
-.customer-list-title {
+.product-list-title {
     color: white;
     font-size: 40px;
     margin: auto;
@@ -42,39 +42,64 @@ th {
     text-align: center;
 }
 
-
-.th-username {
-    width: 220px;
-    text-align: left;
-}
-
-.customer-username {
-    width: 200px;
+.th-product-id {
+    width: 50px;
     text-align: left;
     font-size: 18px;
 }
 
-.th-id {
-    width: 400px;
-    text-align: left;
-}
-
-.customer-id {
-    width: 400px;
+.product-id {
+    width: 50px;
     text-align: left;
     color: rgb(26, 43, 66);
     font-size: 18px;
 }
 
-.th-email {
-    width: 250px;
+.th-product-name {
+    width: 170px;
     text-align: left;
+    font-size: 18px;
 }
 
-.customer-email {
-    width: 350px;
+.product-name {
+    width: 150px;
     text-align: left;
-    color: rgb(26, 43, 66);
+    font-size: 18px;
+}
+
+.th-quantity {
+    width: 120px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.product-quantity {
+    width: 100px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.th-price {
+    width: 170px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.product-price {
+    width: 150px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.th-description {
+    width: 150px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.product-description {
+    width: 650px;
+    text-align: left;
     font-size: 18px;
 }
 
