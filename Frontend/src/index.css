@@ -53,3 +53,17 @@ button:focus-visible {
   }
 
 }
+/* Mobile */
+@media screen and (max-width: 768px) {
+  /* CSS rules for mobile screens go here */
+}
+
+/* Tablet */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for tablet screens go here */
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+  /* CSS rules for desktop screens go here */
+}

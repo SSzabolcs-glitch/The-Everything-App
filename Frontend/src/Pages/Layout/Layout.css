@@ -9,45 +9,61 @@
     justify-content: flex-start;
     height: 100vh;
   }
-
-.Layout nav ul {
+  nav {
+    width: 100%;
     margin: 0;
-    width: 100vw;
-    padding: 10px;
-    list-style-type:none;
+    padding: 0;
+    background-color: #333;
+    color: #fff;
+  }
+  .Layout nav ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     display: flex;
     align-items: center;
     background-color: rgb(26, 43, 66);
-    color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Slightly reduce the font size */
     font-weight: bold;
+    overflow-x: auto; /* Add horizontal scrolling for small screens */
+    flex: 1;
   }
-  
   .Layout nav button {
-    padding: 0.5rem 1.7rem;
+    padding: 0.5rem 1rem; 
     font-weight: bold;
-    margin-left: 10px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
   }
 
   .button-container {
-    margin-left: auto;
-    margin-right: 5vh;
-    font-size: 24px;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-left: 20px; /* Push it to the right edge */
+  margin-right: 20px; /* Add a slight margin from the right edge */
+  font-size: 1.2rem;
   }
   
+
   .Layout nav button:hover {
-    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
   }
   
   .Layout nav li {
-    margin: 5px;
+    margin: 10px;
     text-align: left;
   }
   
   .home {
+    
     width: 20vw;
     font-weight: 500;
     font-size: 30px;
+    margin-right: 10px;
+    padding: 10px 20px; /* Increase the padding for the "Home" link */
+   
   }
 
   .home:hover {
@@ -59,10 +75,22 @@
   }*/
 
   .menu {
-    display: inline-block; /*align the menus next to each other*/
-    width: 7vw;
+    flex: 1; /* This will make each menu item take up equal space */
+    margin-right: 10px;
+  
+  }
+  .menu {
+    padding: 10px; /* Add padding to menu items for better touch usability */
     font-weight: 400;
-    font-size: 18px;
+    font-size: 1rem; /* Reduce the font size for menu items */
+    white-space: nowrap;
+  }
+  .menu-container {
+    padding-left: 20px ;
+    margin-left: 50px;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   }
 
   .menu:hover {
@@ -82,9 +110,20 @@
   .main-logo {
     width: 60px;
     height: 60px;
-    margin-left: 5vh;
+    margin-left: 2vh;
     background-image: url('../../images/Logo_01.png');
     background-size: cover;
   }
-  
-  
+  @media screen and (max-width: 1100px) {
+    .menu-container {
+      flex-direction: column;
+    }
+    .button-container {
+      flex-direction: column;
+    }
+    .menu {
+      flex: none; /* Prevent items from stretching in column layout */
+      
+      margin-bottom: 10px; /* Add margin between items in column layout */
+    }
+  }
