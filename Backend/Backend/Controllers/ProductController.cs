@@ -2,6 +2,7 @@
 using Backend.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -112,17 +113,26 @@ namespace Backend.Controllers
         }
 
         [HttpPut("UpdateProduct"), Authorize(Roles = "Admin")]
-        public async Task<ActionResult> UpdateProduct([Required] int id, Product freshProduct)
+        public async Task<ActionResult> UpdateProduct([FromBody] Product product)
         {
             try
             {
-                var product = await _productRepository.UpdateProductAsync(id, freshProduct);
-                return Ok($"Id: {product.Id}, ({product.ProductName}) updated successfully");
+                var existingProduct = await _productRepository.GetByIdAsync(product.Id);
+                if (existingProduct == null) return NotFound();
+
+                existingProduct.ProductName = product.ProductName;
+                existingProduct.Quantity = product.Quantity;
+                existingProduct.UnitPrice = product.UnitPrice;
+                existingProduct.Description = product.Description;
+
+                var result = await _productRepository.UpdateProductAsync(product.Id, existingProduct);
+
+                return Ok($"Updated {existingProduct}.");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error updating product", ex.Message);
-                return BadRequest("Error updating product");
+                _logger.LogError(ex, "Error updating Product.");
+                throw;
             }
         }
     }
