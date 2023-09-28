@@ -5,38 +5,56 @@ namespace Backend.Repository;
 
 public class AddressRepository : IAddressRepository
 {
-    private readonly IDbContextFactory<EverythingAppContext> _dbContextFactory;
+    private readonly EverythingAppContext _dbContext;
 
-    public AddressRepository(IDbContextFactory<EverythingAppContext> dbContextFactory)
+    public AddressRepository(EverythingAppContext dbContext)
     {
-        _dbContextFactory = dbContextFactory;
+        _dbContext = dbContext;
     }
 
 
-    public Address? GetByCustomerId(int customerId)
+    public async Task<Address?> GetById(int id)
     {
-        using var dbContext = _dbContextFactory.CreateDbContext();
-        return dbContext.Addresses.FirstOrDefault(a => a.Id == customerId);
+        var address = await _dbContext.Addresses.FirstOrDefaultAsync(a => a.Id == id);
+        return address;
+    }
+    public async Task<Address> AddAddressAsync(Address address)
+    {
+        await _dbContext.Addresses.AddAsync(address);
+        await _dbContext.SaveChangesAsync();
+        return address;
     }
 
-    public void Delete(Address address)
+    public async Task<Address> DeleteAsync(int addressId)
     {
-        using var dbContext = _dbContextFactory.CreateDbContext();
-        dbContext.Addresses.Remove(address);
-        dbContext.SaveChanges();
+        var addressToDelete = await _dbContext.Addresses.FirstOrDefaultAsync(a => a.Id == addressId);
+        if(addressToDelete == null)
+        {
+            throw new Exception("Nonexistent address");
+        }
+        _dbContext.Addresses.Remove(addressToDelete);
+        await _dbContext.SaveChangesAsync();
+        return addressToDelete;
     }
 
-    public void Update(Address address)
+    public async Task<Address> UpdateAsync(int addressId, Address freshAddress)
     {
-        using var dbContext = _dbContextFactory.CreateDbContext();
-        dbContext.Addresses.Update(address);
-        dbContext.SaveChanges();
+        var addressToUpdate = await _dbContext.Addresses.FirstOrDefaultAsync(address => address.Id == addressId);   
+        if(addressToUpdate == null)
+        {
+            throw new Exception("Nonexistent address");
+        }
+
+        addressToUpdate.Country = freshAddress.Country;
+        addressToUpdate.State = freshAddress.State;
+        addressToUpdate.Street = freshAddress.Street;
+        addressToUpdate.PostalCode = freshAddress.PostalCode;
+        addressToUpdate.City = freshAddress.City;
+        addressToUpdate.HouseNumber = freshAddress.HouseNumber;
+        addressToUpdate.Other = freshAddress.Other;
+
+        await _dbContext.SaveChangesAsync();
+        return addressToUpdate;
     }
 
-    public void AddAddress(Address address)
-    {
-        using var dbContext = _dbContextFactory.CreateDbContext();
-        dbContext.Addresses.Add(address);
-        dbContext.SaveChanges();
-    }
 }

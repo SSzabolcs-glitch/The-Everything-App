@@ -4,8 +4,8 @@ namespace Backend.Repository;
 
 public interface IAddressRepository
 {
-    Address? GetByCustomerId(int customerid);
-    void Delete(Address address);
-    void Update(Address address);
-    void AddAddress(Address address);
+    Task<Address?> GetById(int id);
+    Task<Address> AddAddressAsync(Address address);
+    Task<Address> DeleteAsync(int addressId);
+    Task<Address> UpdateAsync(int addressId, Address freshAddress);
 }

@@ -10,7 +10,7 @@ namespace Backend.Models
         public string? State { get; set; }
         public string? PostalCode { get; set; }
         public string? City { get; set; }
-        public string? Sreet { get; set; }
+        public string? Street { get; set; }
         public int HouseNumber { get; set; }
         public string? Other { get; set; }
     }
